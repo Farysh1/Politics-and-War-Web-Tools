@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>City Cost Calculator</title> <!-- Name in tab bar -->
+    <link rel="icon" type="image/x-icon" href="assets/UCR_Flag_favicon.png"> <!-- Icon in tab bar -->
+  </head>
+  <body class="Background">
+    <a href="index.html"><img src="assets/Back Arrow.png" alt="" class="back_arrow"></a>
+    <div class="city_number_calculator_container">
+      <img src="assets/City.png" class="City_Image">
+      <h1 class="city_number_calculator_text">City Cost Calculator</h1>
+      <p class="city_number_calculator_text51">Note: Due to how the game calculates city prices, you need to change the number you enter, example: I want to get the price of C25, so for the calculation to work I need to enter 24 into the city number box</p>
+      <form>
+        <input type="number" placeholder="city number" value="" id="city_number" min="1" class="city_number_input">
+      </form>
+      <button onclick="cost_calculation(), projects_and_policy()">Calculate</button>
+      <p class="city_number_calculator_text2"> Calculation result:</p>
+      <div class="cash_display">
+        <img src="assets/money.png" class="cash_display_img">
+        <span class="city_number_calculator_text3" id="calculation_price" class="cash_display"></span>
+      </div>
+      <noscript>Eh, your browser doesn't support JavaScript, so this doesn't work</noscript>
+      <div class="city_number_calculator_container_text">
+        <input type="checkbox" id="UP"/>
+        <span class="padding">Urban Planning |</span>
+        <div class="city_number_calculator_container_text">
+        <input type="checkbox" id="AUP"/>
+        <span class="padding">Advanced Urban Planning |</span>
+        <div class="city_number_calculator_container_text">
+        <input type="checkbox" id="MP"/>
+        <span class="padding">Metropolitan Planning |</span>
+      </div>
+  </body>
+</html>
+
+<script>
+  function cost_calculation() {
+    var city = document.getElementById("city_number").value; //Get city number
+    var cost = 50000 * Math.pow((city - 1), 3) + 150000 * city + 75000; //Calculate next city cost
+    var cost2 = cost.toLocaleString(); //Adds dots and commas to price for easier readability
+  
+    document.getElementById("calculation_price").innerHTML = cost2;
+  }
+</script>
+<script>
+  function projects_and_policy()
+  {
+  var a = document.getElementById("city_number").value;
+  let calculation_price = document.getElementById("calculation_price").value;
+  
+if (document.getElementById("MP").checked && (a>21)) //Metropolitan Planning
+  {
+    var city = document.getElementById("city_number").value; //Get city number
+    var cost = 50000 * Math.pow((city - 1), 3) + 150000 * city + 75000 - 300000000; //Calculate next city cost
+    var cost2 = cost.toLocaleString(); //Adds dots and commas to price for easier readability
+  
+    document.getElementById("calculation_price").innerHTML = cost2;
+  }
+else if (document.getElementById("AUP").checked && (a>16)) //Advanced Urban Planning
+ {
+    var city = document.getElementById("city_number").value; //Get city number
+    var cost = 50000 * Math.pow((city - 1), 3) + 150000 * city + 75000 - 150000000; //Calculate next city cost
+    var cost2 = cost.toLocaleString(); //Adds dots and commas to price for easier readability
+  
+    document.getElementById("calculation_price").innerHTML = cost2;
+ }
+else if (document.getElementById("UP").checked && (a>11)) //Urban Planning
+ {
+  var city = document.getElementById("city_number").value; //Get city number
+  var cost = 50000 * Math.pow((city - 1), 3) + 150000 * city + 75000 - 50000000; //Calculate next city cost
+  var cost2 = cost.toLocaleString(); //Adds dots and commas to price for easier readability
+  
+  document.getElementById("calculation_price").innerHTML = cost2;
+ }
+}
+</script>
+
+<style>
+  .Background {
+    background-color: black;
+  }
+
+  .city_number_calculator_text {
+    color: white;
+    width: 100%;
+    display: flex;
+    overflow: auto;
+    align-items: center;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  .city_number_calculator_text51 {
+    color: white;
+  }
+
+  .City_Image {
+    align-items: flex-start;
+    align-self: auto;
+    object-fit: cover;
+    width: auto;
+    padding-top: 20px;
+  }
+
+  .city_number_calculator_container {
+    width: 100%;
+    height: 522px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  .city_number_calculator_container_text {
+    color: white;
+    flex: 0 0 auto;
+    width: auto;
+    height: auto;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+  }
+
+  .city_number_calculator_text2 {
+    color: white;
+    padding-bottom: 5px;
+  }
+
+  .city_number_calculator_text3 {
+    color: white;
+    padding-bottom: 30px;
+  }
+
+  .padding {
+    color: white;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .cash_display {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .cash_display_img {
+    object-fit: cover;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 32px;
+    padding-right: 10px;
+  }
+
+  .city_number_input {
+    margin-bottom: 20px;
+    color: black;
+  }
+
+  @media screen and (max-width: 600px) {
+  .city_number_input {
+    color: white;
+    background-color: white;
+  }
+}
+
+  .back_arrow {
+    width: 25px;
+    height: 25px;
+    align-self: flex-start;
+  }
+</style>
