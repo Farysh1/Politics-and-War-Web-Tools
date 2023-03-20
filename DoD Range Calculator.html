@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>DoD Range Calculator</title> <!-- Name in tab bar -->
+        <link rel="icon" type="image/x-icon" href="assets/UCR_Flag_favicon.png"> <!-- Icon in tab bar -->
+    </head>
+    <body class="background">
+        <a href="index.html"><img src="assets/Back Arrow.png" alt="" class="back_arrow"></a>
+        <div class="DOD_Range_calculator_container">
+            <h1 class="DOD_Range_calculator_container_text">DoD Range Calculator</h1>
+            <form>
+                <input type="number" placeholder="Nation Score" value="" id="Nation_Score" class="Nation_Score_number_input">
+            </form>
+            <button onclick="War_Range_calculation(), Spy_Range_calculation()">Calculate</button>
+            <p class="War_Range_number_calculator_text"> War Range:</p>
+            <div class="War_Range_display">
+              <span class="War_Range_number_calculator_text2" id="calculation_War_Range" class="War_Range_display"></span>
+            </div>
+            <p class="War_Range_number_calculator_text"> Spy Range:</p>
+            <div class="Spy_Range_display">
+              <span class="Spy_Range_number_calculator_text2" id="calculation_Spy_Range" class="Spy_Range_display"></span>
+            </div>
+        </div>
+    </body>
+</html>
+
+<script>
+  function War_Range_calculation() {
+    var NationScore = document.getElementById("Nation_Score").value; //Get Nation Score number
+    var War_Range_Min = NationScore * 0.75; //Calculate minimum war range
+    var War_Range_Max = NationScore * 1.75; //Calculate maximum war range
+    var War_Range_Min2 = War_Range_Min.toLocaleString(); //Adds dots and commas to the Minimum War Range for easier readability
+    var War_Range_Max2 = War_Range_Max.toLocaleString(); //Adds dots and commas to the Maximum War Range for easier readability
+  
+    document.getElementById("calculation_War_Range").innerHTML = War_Range_Min2 + " - " + War_Range_Max2;
+  }
+</script>
+<script>
+    function Spy_Range_calculation() {
+      var NationScore = document.getElementById("Nation_Score").value; //Get Nation Score number
+      var Spy_Range_Min = NationScore * 0.40; //Calculate minimum spy range
+      var Spy_Range_Max = NationScore * 2.50; //Calculate maximum spy range
+      var Spy_Range_Min2 = Spy_Range_Min.toLocaleString(); //Adds dots and commas to the Minimum Spy Range for easier readability
+      var Spy_Range_Max2 = Spy_Range_Max.toLocaleString(); //Adds dots and commas to the Maximum Spy Range for easier readability
+    
+      document.getElementById("calculation_Spy_Range").innerHTML = Spy_Range_Min2 + " - " + Spy_Range_Max2;
+    }
+  </script>
+
+<style>
+    .background {
+        background-color: black;
+    }
+
+    .back_arrow {
+    width: 25px;
+    height: 25px;
+    align-self: flex-start;
+  }
+
+  .DOD_Range_calculator_container {
+    width: 100%;
+    height: 522px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  .DOD_Range_calculator_container_text {
+    color: white;
+    width: 100%;
+    display: flex;
+    overflow: auto;
+    align-items: center;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  .Nation_Score_number_input {
+    margin-bottom: 20px;
+    color: black;
+  }
+
+  .War_Range_number_calculator_text {
+    color: white;
+    padding-bottom: 5px;
+  }
+
+  .War_Range_display {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .War_Range_number_calculator_text2 {
+    color: white;
+    padding-bottom: 30px;
+  }
+
+  .Spy_Range_display {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .Spy_Range_number_calculator_text2 {
+    color: white;
+    padding-bottom: 30px;
+  }
+</style>
