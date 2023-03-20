@@ -8,7 +8,7 @@
     <div class="city_number_calculator_container">
       <img src="assets/City.png" class="City_Image">
       <h1 class="city_number_calculator_text">City Cost Calculator</h1>
-      <p class="city_number_calculator_text">Note: Due to how the game calculates city prices, you need to change the number you enter, example: I want to get the price of C25, so for the calculation to work I need to enter 24 into the city number box</p>
+      <p class="city_number_calculator_text51">Note: Due to how the game calculates city prices, you need to change the number you enter, example: I want to get the price of C25, so for the calculation to work I need to enter 24 into the city number box</p>
       <form>
         <input type="number" placeholder="city number" value="" id="city_number" min="1" class="city_number_input">
       </form>
@@ -81,6 +81,16 @@ else if (document.getElementById("UP").checked && (a>11)) //Urban Planning
 
   .city_number_calculator_text {
     color: white;
+    width: 100%;
+    display: flex;
+    overflow: auto;
+    align-items: center;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  .city_number_calculator_text51 {
+    color: white;
   }
 
   .City_Image {
@@ -142,5 +152,13 @@ else if (document.getElementById("UP").checked && (a>11)) //Urban Planning
 
   .city_number_input {
     margin-bottom: 20px;
+    color: black;
   }
+
+  @media screen and (max-width: 600px) {
+  .city_number_input {
+    color: white;
+    background-color: white;
+  }
+}
 </style>
