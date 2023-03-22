@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>The War Simulator</title> <!-- Name in tab bar -->
+        <link rel="icon" type="image/x-icon" href="assets/UCR_Flag_favicon.png"> <!-- Icon in tab bar -->
+    </head>
+    <body class="Background">
+        <a href="index.html"><img src="assets/Back Arrow.png" alt="" class="back_arrow"></a>
+        <div class="WAR_System_calculator_container">
+            <h1 class="War_System_calculator_container_text">The War Simulator</h1>
+            <form>
+                <input type="number" placeholder="Enter your Soldiers" value="" id="Your_Soldiers" class="Unit_number_input2">
+                <input type="number" placeholder="Enter enemy Soldiers" value="" id="Enemy_Soldiers" class="Unit_number_input">
+            </form>
+            <form>
+                <input type="number" placeholder="Enter your Tanks" value="" id="Your_Tanks" class="Unit_number_input2">
+                <input type="number" placeholder="Enter enemy Tanks" value="" id="Enemy_Tanks" class="Unit_number_input">
+            </form>
+            <form>
+                <input type="number" placeholder="Enter your Aircraft" value="" id="Your_Aircraft" class="Unit_number_input2">
+                <input type="number" placeholder="Enter enemy Aircraft" value="" id="Enemy_Aircraft" class="Unit_number_input">
+            </form>
+            <form>
+                <input type="number" placeholder="Enter your Ships" value="" id="Your_Ships" class="Unit_number_input2">
+                <input type="number" placeholder="Enter enemy Ships" value="" id="Enemy_Ships" class="Unit_number_input">
+            </form>
+            <form>
+                <input type="number" placeholder="Enter your Missiles" value="" id="Your_Missiles" class="Unit_number_input2">
+                <input type="number" placeholder="Enter enemy Missiles" value="" id="Enemy_Missiles" class="Unit_number_input">
+            </form>
+            <form>
+                <input type="number" placeholder="Enter your Nuclear Weapons" value="" id="Your_Nuclear_Weapons" class="Unit_number_input2">
+                <input type="number" placeholder="Enter enemy Nuclear Weapons" value="" id="Enemy_Nuclear_Weapons" class="Unit_number_input">
+            </form>
+            <button onclick="SaveData()" class="War_Simulation">Start War!</button>
+            <button onclick="Clear_my_Data()" class="War_Simulation">Clear My Data!</button>
+            <select class="Select_Attack_Type">
+                <option value="" selected>Choose an Attack Type</option>
+                <option value="Ground_Attack">Ground Attack</option>
+                <option value="Airstrike">Airstrike</option>
+                <option value="Naval_Battle">Naval Battle</option>
+                <option value="Missile_Strike">Missile Strike</option>
+                <option value="Nuclear_Strike">Nuclear Strike</option>
+              </select>              
+        </div>
+    </body>
+</html>
+
+<script>
+    function SaveData() {
+        //Soldiers
+        var Your_Soldiers = document.getElementById("Your_Soldiers").value;
+        var Enemy_Soldiers = document.getElementById("Enemy_Soldiers").value;
+        localStorage.setItem('Your_Soldiers', Your_Soldiers); //Stores Your Soldier number in local storage
+        localStorage.setItem('Enemy_Soldiers', Enemy_Soldiers); //Stores Enemy Soldier number in local storage
+        //Tanks
+        var Your_Tanks = document.getElementById("Your_Tanks").value;
+        var Enemy_Tanks = document.getElementById("Enemy_Tanks").value;
+        localStorage.setItem('Your_Tanks', Your_Tanks); //Stores Your Tank number in local storage
+        localStorage.setItem('Enemy_Tanks', Enemy_Tanks); //Stores Enemy Tank number in local storage
+        //Aircraft
+        var Your_Aircraft = document.getElementById("Your_Aircraft").value;
+        var Enemy_Aircraft = document.getElementById("Enemy_Aircraft").value;
+        localStorage.setItem('Your_Aircraft', Your_Aircraft); //Stores Your Aircraft number in local storage
+        localStorage.setItem('Enemy_Aircraft', Enemy_Aircraft); //Stores Enemy Aircraft number in local storage
+        //Ships
+        var Your_Ships = document.getElementById("Your_Ships").value;
+        var Enemy_Ships = document.getElementById("Enemy_Ships").value;
+        localStorage.setItem('Your_Ships', Your_Ships); //Stores Your Ship number in local storage
+        localStorage.setItem('Enemy_Ships', Enemy_Ships); //Stores Enemy Ship number in local storage
+        //Missiles
+        var Your_Missiles = document.getElementById("Your_Missiles").value;
+        var Enemy_Missiles = document.getElementById("Enemy_Missiles").value;
+        localStorage.setItem('Your_Missiles', Your_Missiles); //Stores Your Missile number in local storage
+        localStorage.setItem('Enemy_Missiles', Enemy_Missiles); //Stores Enemy Missile number in local storage
+        //Nuclear Weapons
+        var Your_Nuclear_Weapons = document.getElementById("Your_Nuclear_Weapons").value;
+        var Enemy_Nuclear_Weapons = document.getElementById("Enemy_Nuclear_Weapons").value;
+        localStorage.setItem('Your_Nuclear_Weapons', Your_Nuclear_Weapons); //Stores Your Nuclear Weapon number in local storage
+        localStorage.setItem('Enemy_Nuclear_Weapons', Enemy_Nuclear_Weapons); //Stores Enemy Nuclear Weapon number in local storage
+    }
+</script>
+<script>
+    window.onload = function() {
+        //Soldiers
+        var Your_Soldiers = localStorage.getItem('Your_Soldiers');
+        var Enemy_Soldiers = localStorage.getItem('Enemy_Soldiers');
+        //Tanks
+        var Your_Tanks = localStorage.getItem('Your_Tanks');
+        var Enemy_Tanks = localStorage.getItem('Enemy_Tanks');
+        //Aircraft
+        var Your_Aircraft = localStorage.getItem('Your_Aircraft');
+        var Enemy_Aircraft = localStorage.getItem('Enemy_Aircraft');
+        //Ships
+        var Your_Ships = localStorage.getItem('Your_Ships');
+        var Enemy_Ships = localStorage.getItem('Enemy_Ships');
+        //Missiles
+        var Your_Missiles = localStorage.getItem('Your_Missiles');
+        var Enemy_Missiles = localStorage.getItem('Enemy_Missiles');
+        //Nuclear Weapons
+        var Your_Nuclear_Weapons = localStorage.getItem('Your_Nuclear_Weapons');
+        var Enemy_Nuclear_Weapons = localStorage.getItem('Enemy_Nuclear_Weapons');
+        
+        document.getElementById("Your_Soldiers").value = Your_Soldiers;
+        document.getElementById("Enemy_Soldiers").value = Enemy_Soldiers;
+        //Soldiers
+        document.getElementById("Your_Tanks").value = Your_Tanks;
+        document.getElementById("Enemy_Tanks").value = Enemy_Tanks;
+        //Tanks
+        document.getElementById("Your_Aircraft").value = Your_Aircraft;
+        document.getElementById("Enemy_Aircraft").value = Enemy_Aircraft;
+        //Aircraft
+        document.getElementById("Your_Ships").value = Your_Ships;
+        document.getElementById("Enemy_Ships").value = Enemy_Ships;
+        //Ships
+        document.getElementById("Your_Missiles").value = Your_Missiles;
+        document.getElementById("Enemy_Missiles").value = Enemy_Missiles;
+        //Missiles
+        document.getElementById("Your_Nuclear_Weapons").value = Your_Nuclear_Weapons;
+        document.getElementById("Enemy_Nuclear_Weapons").value = Enemy_Nuclear_Weapons;
+    }
+</script>
+<script>
+    function Clear_my_Data() {
+        localStorage.clear();
+    }
+</script>
+
+<style>
+    .Background {
+        background-color: black;
+    }
+    
+    .back_arrow {
+    width: 25px;
+    height: 25px;
+    align-self: flex-start;
+    }
+
+    .WAR_System_calculator_container {
+    width: 100%;
+    height: 522px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  .War_System_calculator_container_text {
+    color: white;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  .Unit_number_input {
+    margin-bottom: 20px;
+    margin-top: 30px;
+    color: black;
+  }
+
+  .Unit_number_input2 {
+    margin-bottom: 20px;
+    margin-top: 30px;
+    margin-right: 100px;
+    color: black;
+  }
+
+  .War_Simulation {
+    color: black;
+    margin-top: 30px;
+  }
+
+  .Select_Attack_Type {
+    margin-top: 50px;
+  }
+</style>
