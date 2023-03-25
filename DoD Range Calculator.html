@@ -14,10 +14,12 @@
             <button onclick="War_Range_calculation(), Spy_Range_calculation()">Calculate</button>
             <p class="War_Range_number_calculator_text"> War Range:</p>
             <div class="War_Range_display">
+              <img src="assets/sword.png" class="Spy_and_WAR_Image">
               <span class="War_Range_number_calculator_text2" id="calculation_War_Range" class="War_Range_display"></span>
             </div>
             <p class="War_Range_number_calculator_text"> Spy Range:</p>
             <div class="Spy_Range_display">
+              <img src="assets/emotion_spy.png" class="Spy_and_WAR_Image">
               <span class="Spy_Range_number_calculator_text2" id="calculation_Spy_Range" class="Spy_Range_display"></span>
             </div>
         </div>
@@ -43,7 +45,7 @@
       var Spy_Range_Min2 = Spy_Range_Min.toLocaleString(); //Adds dots and commas to the Minimum Spy Range for easier readability
       var Spy_Range_Max2 = Spy_Range_Max.toLocaleString(); //Adds dots and commas to the Maximum Spy Range for easier readability
     
-      document.getElementById("calculation_Spy_Range").innerHTML = Spy_Range_Min2 + " - " + Spy_Range_Max2;
+      document.getElementById("calculation_Spy_Range").innerHTML =  Spy_Range_Min2 + " - " + Spy_Range_Max2;
     }
   </script>
 
@@ -107,5 +109,10 @@
   .Spy_Range_number_calculator_text2 {
     color: white;
     padding-bottom: 30px;
+  }
+
+  .Spy_and_WAR_Image {
+    padding-right: 10px;
+    padding-bottom: 33px;
   }
 </style>
