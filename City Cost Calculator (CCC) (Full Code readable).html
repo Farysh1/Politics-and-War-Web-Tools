@@ -11,9 +11,9 @@
       <h1 class="city_number_calculator_text">City Cost Calculator</h1>
       <p class="city_number_calculator_text51">Note: Due to how the game calculates city prices, you need to change the number you enter, example: I want to get the price of C25, so for the calculation to work I need to enter 24 into the city number box</p>
       <form>
-        <input type="number" placeholder="city number" value="" id="city_number" min="1" class="city_number_input">
+        <input type="number" placeholder="city number" value="" id="city_number" min="1" class="city_number_input" required>
       </form>
-      <button onclick="cost_calculation(), projects_and_policy()">Calculate</button>
+      <button onclick="validate(), cost_calculation(), projects_and_policy()">Calculate</button>
       <p class="city_number_calculator_text2"> Calculation result:</p>
       <div class="cash_display">
         <img src="assets/money.png" class="cash_display_img">
@@ -34,45 +34,51 @@
 </html>
 
 <script>
+  function validate() {
+  	var CityNumber = document.getElementById("city_number").value;
+
+  	if (CityNumber == "") {
+  		alert("Please fill in all required fields.");
+  		return false;
+  		stop
+  	}
+  }
+
   function cost_calculation() {
-    var city = document.getElementById("city_number").value; //Get city number
-    var cost = 50000 * Math.pow((city - 1), 3) + 150000 * city + 75000; //Calculate next city cost
-    var cost2 = cost.toLocaleString(); //Adds dots and commas to price for easier readability
-  
-    document.getElementById("calculation_price").innerHTML = cost2;
+  	var city = document.getElementById("city_number").value; //Get city number
+  	var cost = 50000 * Math.pow((city - 1), 3) + 150000 * city + 75000; //Calculate next city cost
+  	var cost2 = cost.toLocaleString(); //Adds dots and commas to price for easier readability
+
+  	document.getElementById("calculation_price").innerHTML = cost2;
   }
-</script>
-<script>
-  function projects_and_policy()
-  {
-  var a = document.getElementById("city_number").value;
-  let calculation_price = document.getElementById("calculation_price").value;
-  
-if (document.getElementById("MP").checked && (a>21)) //Metropolitan Planning
-  {
-    var city = document.getElementById("city_number").value; //Get city number
-    var cost = 50000 * Math.pow((city - 1), 3) + 150000 * city + 75000 - 300000000; //Calculate next city cost
-    var cost2 = cost.toLocaleString(); //Adds dots and commas to price for easier readability
-  
-    document.getElementById("calculation_price").innerHTML = cost2;
+
+  function projects_and_policy() {
+  	var a = document.getElementById("city_number").value;
+  	let calculation_price = document.getElementById("calculation_price").value;
+
+  	if (document.getElementById("MP").checked && (a > 21)) //Metropolitan Planning
+  	{
+  		var city = document.getElementById("city_number").value; //Get city number
+  		var cost = 50000 * Math.pow((city - 1), 3) + 150000 * city + 75000 - 300000000; //Calculate next city cost
+  		var cost2 = cost.toLocaleString(); //Adds dots and commas to price for easier readability
+
+  		document.getElementById("calculation_price").innerHTML = cost2;
+  	} else if (document.getElementById("AUP").checked && (a > 16)) //Advanced Urban Planning
+  	{
+  		var city = document.getElementById("city_number").value; //Get city number
+  		var cost = 50000 * Math.pow((city - 1), 3) + 150000 * city + 75000 - 150000000; //Calculate next city cost
+  		var cost2 = cost.toLocaleString(); //Adds dots and commas to price for easier readability
+
+  		document.getElementById("calculation_price").innerHTML = cost2;
+  	} else if (document.getElementById("UP").checked && (a > 11)) //Urban Planning
+  	{
+  		var city = document.getElementById("city_number").value; //Get city number
+  		var cost = 50000 * Math.pow((city - 1), 3) + 150000 * city + 75000 - 50000000; //Calculate next city cost
+  		var cost2 = cost.toLocaleString(); //Adds dots and commas to price for easier readability
+
+  		document.getElementById("calculation_price").innerHTML = cost2;
+  	}
   }
-else if (document.getElementById("AUP").checked && (a>16)) //Advanced Urban Planning
- {
-    var city = document.getElementById("city_number").value; //Get city number
-    var cost = 50000 * Math.pow((city - 1), 3) + 150000 * city + 75000 - 150000000; //Calculate next city cost
-    var cost2 = cost.toLocaleString(); //Adds dots and commas to price for easier readability
-  
-    document.getElementById("calculation_price").innerHTML = cost2;
- }
-else if (document.getElementById("UP").checked && (a>11)) //Urban Planning
- {
-  var city = document.getElementById("city_number").value; //Get city number
-  var cost = 50000 * Math.pow((city - 1), 3) + 150000 * city + 75000 - 50000000; //Calculate next city cost
-  var cost2 = cost.toLocaleString(); //Adds dots and commas to price for easier readability
-  
-  document.getElementById("calculation_price").innerHTML = cost2;
- }
-}
 </script>
 
 <style>
