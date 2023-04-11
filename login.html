@@ -1,0 +1,77 @@
+<script src="script.js"></script>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Login</title>
+    <link rel="icon" type="image/x-icon" href="assets/UCR_Flag_favicon.png">
+  </head>
+  <body class="background">
+    <div class="Image_Container">
+      <img class="UCR_Logo" src="assets/UCR Flag.png" alt="">
+    </div>
+    <form class="Login_Container">
+      <h2 class="Login_Container_Text">Login</h2>
+      <input class="Login_Container_Input" type="text" id="username" name="username" placeholder="Username">
+      <br>
+      <input class="Login_Container_Input" type="password" id="password" name="password" placeholder="Password">
+      <br>
+      <input class="Login_Container_Input" type="button" value="Debug Login" id="loginDebug" onclick="login()">
+    </form>
+  </body>
+</html>
+
+<style>
+.background {
+  background-color: black;
+}
+
+.Image_Container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+}
+
+.UCR_Logo {
+  max-width: 300px;
+  max-height: 100%;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.Login_Container_Text {
+  margin-top: 50px;
+  color: #ffffff;
+}
+
+.Login_Container {
+  width: 300px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.Login_Container_Input[type="text"],
+.Login_Container_Input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  margin-top: 20px;
+}
+
+.Login_Container_Input[type="button"] {
+  width: 100%;
+  background-color: #2e4168;
+  color: #ffffff;
+  padding: 14px 20px;
+  margin: 20px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: 2s;
+}
+
+.Login_Container_Input[type="button"]:hover {
+  background-color: #ffffff;
+  color: #000000;
+}
+</style>
