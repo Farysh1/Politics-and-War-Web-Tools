@@ -1,98 +1,124 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>City Simulator</title>
-    <!-- Name in tab bar -->
-    <link rel="icon" type="image/x-icon" href="assets/UCR_Flag_favicon.png">
-    <!-- Icon in tab bar -->
-  </head>
-  <body class="Background">
-    <a href="index.html">
-      <img src="assets/Back Arrow.png" alt="" class="back_arrow">
-    </a>
-    <div class="city_Simulator_container">
-      <img src="assets/City.png" class="City_Image">
-      <h1 class="city_Simulator_container_text">City Simulator</h1>
-    </div>
-    <div class="City_Stats_Container_Item">
-      <div class="City_Stats_Container_Item_Text">
-        <h1 class="city_Simulator_container_text">Basic</h1>
-        <h5>Infra Needed: <input type="number" value="0" id="infra_needed" min="0" max="5000" class="Input" required readonly>
-        </h5>
-        <h5>Slots: <input type="number" value="0" id="slots" min="0" max="10000" class="Input" required readonly>
-        </h5>
-        <h5>Nuclear Plants Needed: <input type="number" value="0" id="nuclear_plants_needed" min="0" max="10000" class="Input" required readonly>
-        </h5>
-        <h5>Land: <input type="number" value="2000" id="Land" min="250" max="10000" class="Input" required>
-        </h5>
-        <h5>City Age: <input type="number" value="200" id="City_Age" min="1" max="5000" class="Input" required>
-        </h5>
-      </div>
-      <div class="City_Stats_Container_Item_Text">
-        <h1 class="city_Simulator_container_text">Raw Resources</h1>
-        <h5>Farms: <input type="number" value="0" id="Farms" min="0" max="20" class="Input" required>
-        </h5>
-        <h5>Coal Mines: <input type="number" value="0" id="Coal_Mines" min="0" max="10" class="Input" required>
-        </h5>
-        <h5>Iron Mines: <input type="number" value="0" id="Iron_Mines" min="0" max="10" class="Input" required>
-        </h5>
-        <h5>Lead Mines: <input type="number" value="0" id="Lead_Mines" min="0" max="10" class="Input" required>
-        </h5>
-        <h5>Oil Wells: <input type="number" value="0" id="Oil_Wells" min="0" max="10" class="Input" required>
-        </h5>
-        <h5>Bauxite Mines: <input type="number" value="0" id="Bauxite_Mines" min="0" max="10" class="Input" required>
-        </h5>
-        <h5>Uranium Mines: <input type="number" value="0" id="Uranium_Mines" min="0" max="5" class="Input" required>
-        </h5>
-      </div>
-      <div class="City_Stats_Container_Item_Text">
-        <h1 class="city_Simulator_container_text">Manufacturing</h1>
-        <h5>Oil Refinery: <input type="number" value="0" id="Oil_Refinery" min="0" max="5" class="Input" required>
-        </h5>
-        <h5>Steel Mills: <input type="number" value="0" id="Steel_Mills" min="0" max="5" class="Input" required>
-        </h5>
-        <h5>Aluminum Refinery: <input type="number" value="0" id="Aluminum_Refinery" min="0" max="5" class="Input" required>
-        </h5>
-        <h5>Munitions Factory: <input type="number" value="0" id="Munitions_Factory" min="0" max="5" class="Input" required>
-        </h5>
-      </div>
-      <div class="City_Stats_Container_Item_Text">
-        <h1 class="city_Simulator_container_text">Civil</h1>
-        <h5>Police Station: <input type="number" value="0" id="Police_Station" min="0" max="5" class="Input" required>
-        </h5>
-        <h5>Hospital: <input type="number" value="0" id="Hospital" min="0" max="5" class="Input" required>
-        </h5>
-        <h5>Recycling Center: <input type="number" value="0" id="Recycling_Center" min="0" max="3" class="Input" required>
-        </h5>
-        <h5>Subway: <input type="number" value="0" id="Subway" min="0" max="1" class="Input" required>
-        </h5>
-      </div>
-      <div class="City_Stats_Container_Item_Text">
-        <h1 class="city_Simulator_container_text">Commerce</h1>
-        <h5>Supermarket: <input type="number" value="0" id="Supermarket" min="0" max="6" class="Input" required>
-        </h5>
-        <h5>Bank: <input type="number" value="0" id="Bank" min="0" max="5" class="Input" required>
-        </h5>
-        <h5>Shopping Mall: <input type="number" value="0" id="Shopping_Mall" min="0" max="4" class="Input" required>
-        </h5>
-        <h5>Stadium: <input type="number" value="0" id="Stadium" min="0" max="3" class="Input" required>
-        </h5>
-      </div>
-      <div class="City_Stats_Container_Item_Text">
-        <h1 class="city_Simulator_container_text">Military</h1>
-        <h5>Barracks: <input type="number" value="0" id="Barracks" min="0" max="5" class="Input" required>
-        </h5>
-        <h5>Factory: <input type="number" value="0" id="Factory" min="0" max="5" class="Input" required>
-        </h5>
-        <h5>Hangar: <input type="number" value="0" id="Hangar" min="0" max="5" class="Input" required>
-        </h5>
-        <h5>Drydock: <input type="number" value="0" id="Drydock" min="0" max="3" class="Input" required>
-        </h5>
-      </div>
-    </div>
-    <div class="city_Simulator_calculator_container">
-      <button onclick="Basic_Change(), Basic_Change(), Output(), Output()">Calculate</button>
-      <Textarea class="Text_Area" id="OutPut_Export_City">
+
+<head>
+	<title>City Simulator</title>
+	<!-- Name in tab bar -->
+	<link rel="icon" type="image/x-icon" href="assets/UCR_Flag_favicon.png">
+	<!-- Icon in tab bar -->
+</head>
+
+<body class="Background">
+	<a href="index.html">
+		<img src="assets/Back Arrow.png" alt="" class="back_arrow">
+	</a>
+	<div class="city_Simulator_container">
+		<img src="assets/City.png" class="City_Image">
+		<h1 class="city_Simulator_container_text">City Simulator</h1>
+	</div>
+	<div class="City_Stats_Container_Item">
+		<div class="City_Stats_Container_Item_Text">
+			<h1 class="city_Simulator_container_text">Basic</h1>
+			<h5>Infra Needed: <input type="number" value="0" id="infra_needed" min="0" max="5000" class="Input" required
+					readonly>
+			</h5>
+			<h5>Slots: <input type="number" value="0" id="slots" min="0" max="10000" class="Input" required readonly>
+			</h5>
+			<h5>Nuclear Plants Needed: <input type="number" value="0" id="nuclear_plants_needed" min="0" max="10000"
+					class="Input" required readonly>
+			</h5>
+			<h5>Population: <input type="number" value="0" id="Population" min="0" max="1000000" class="Input" required
+					readonly>
+			</h5>
+			<h5>Population Density: <input type="number" value="0" id="Population_Density" min="0" max="1000000"
+					class="Input" required readonly>
+				<h5>Crime Rate: <input type="number" value="0" id="Crime_Rate" min="0" max="5000" class="Input" required
+						readonly>
+				</h5>
+				<h5>Pollution Index: <input type="number" value="0" id="Pollution_Index" min="0" max="10000"
+						class="Input" required readonly>
+				</h5>
+				<h5>Disease Rate: <input type="number" value="0" id="Disease_Rate" min="0" max="10000" class="Input"
+						required readonly>
+				</h5>
+				<h5>Commerce: <input type="number" value="0" id="Commerce" min="0" max="500" class="Input" required
+						readonly>
+				</h5>
+				<h5>Land: <input type="number" value="2000" id="Land" min="250" max="10000" class="Input" required>
+				</h5>
+				<h5>City Age: <input type="number" value="200" id="City_Age" min="1" max="5000" class="Input" required>
+		</div>
+		<div class="City_Stats_Container_Item_Text">
+			<h1 class="city_Simulator_container_text">Raw Resources</h1>
+			<h5>Farms: <input type="number" value="0" id="Farms" min="0" max="20" class="Input" required>
+			</h5>
+			<h5>Coal Mines: <input type="number" value="0" id="Coal_Mines" min="0" max="10" class="Input" required>
+			</h5>
+			<h5>Iron Mines: <input type="number" value="0" id="Iron_Mines" min="0" max="10" class="Input" required>
+			</h5>
+			<h5>Lead Mines: <input type="number" value="0" id="Lead_Mines" min="0" max="10" class="Input" required>
+			</h5>
+			<h5>Oil Wells: <input type="number" value="0" id="Oil_Wells" min="0" max="10" class="Input" required>
+			</h5>
+			<h5>Bauxite Mines: <input type="number" value="0" id="Bauxite_Mines" min="0" max="10" class="Input"
+					required>
+			</h5>
+			<h5>Uranium Mines: <input type="number" value="0" id="Uranium_Mines" min="0" max="5" class="Input" required>
+			</h5>
+		</div>
+		<div class="City_Stats_Container_Item_Text">
+			<h1 class="city_Simulator_container_text">Manufacturing</h1>
+			<h5>Oil Refinery: <input type="number" value="0" id="Oil_Refinery" min="0" max="5" class="Input" required>
+			</h5>
+			<h5>Steel Mills: <input type="number" value="0" id="Steel_Mills" min="0" max="5" class="Input" required>
+			</h5>
+			<h5>Aluminum Refinery: <input type="number" value="0" id="Aluminum_Refinery" min="0" max="5" class="Input"
+					required>
+			</h5>
+			<h5>Munitions Factory: <input type="number" value="0" id="Munitions_Factory" min="0" max="5" class="Input"
+					required>
+			</h5>
+		</div>
+		<div class="City_Stats_Container_Item_Text">
+			<h1 class="city_Simulator_container_text">Civil</h1>
+			<h5>Police Station: <input type="number" value="0" id="Police_Station" min="0" max="5" class="Input"
+					required>
+			</h5>
+			<h5>Hospital: <input type="number" value="0" id="Hospital" min="0" max="5" class="Input" required>
+			</h5>
+			<h5>Recycling Center: <input type="number" value="0" id="Recycling_Center" min="0" max="3" class="Input"
+					required>
+			</h5>
+			<h5>Subway: <input type="number" value="0" id="Subway" min="0" max="1" class="Input" required>
+			</h5>
+		</div>
+		<div class="City_Stats_Container_Item_Text">
+			<h1 class="city_Simulator_container_text">Commerce</h1>
+			<h5>Supermarket: <input type="number" value="0" id="Supermarket" min="0" max="6" class="Input" required>
+			</h5>
+			<h5>Bank: <input type="number" value="0" id="Bank" min="0" max="5" class="Input" required>
+			</h5>
+			<h5>Shopping Mall: <input type="number" value="0" id="Shopping_Mall" min="0" max="4" class="Input" required>
+			</h5>
+			<h5>Stadium: <input type="number" value="0" id="Stadium" min="0" max="3" class="Input" required>
+			</h5>
+		</div>
+		<div class="City_Stats_Container_Item_Text">
+			<h1 class="city_Simulator_container_text">Military</h1>
+			<h5>Barracks: <input type="number" value="0" id="Barracks" min="0" max="5" class="Input" required>
+			</h5>
+			<h5>Factory: <input type="number" value="0" id="Factory" min="0" max="5" class="Input" required>
+			</h5>
+			<h5>Hangar: <input type="number" value="0" id="Hangar" min="0" max="5" class="Input" required>
+			</h5>
+			<h5>Drydock: <input type="number" value="0" id="Drydock" min="0" max="3" class="Input" required>
+			</h5>
+		</div>
+	</div>
+	<div class="city_Simulator_calculator_container">
+		<button class="Calculate_Button"
+			onclick="Basic_Change(), Basic_Change(), calculateCoalProduction(), calculateBauxiteProduction(), calculateOilProduction(), calculateIronProduction(), calculateLeadProduction(), calculateUraniumProduction(), calculateGasolineProduction(), calculateSteelProduction(), calculateAluminumProduction(), calculateMunitionsProduction(), calculateFoodProduction(), CalculatePopulation()">Calculate</button>
+		<Textarea rows="20" cols="100" id="OutPut_Export_City">
 {
     
     "infra_needed": 0,
@@ -126,300 +152,903 @@
     "imp_drydock": 0
 }
     </Textarea readonly required>
-      <h1 class="Text1">Resource Output is still WIP</h1>
-      <div class="City_Stats_Output_Container">
-        <div class="City_Stats_Output_Container_Item">
-          <h3 class="Text1">Output (per turn)</h3>
-          <p class="City_Stats_Output_Container_Text"><img src="assets/money.png" alt="" id="MoneyPerTurn">0</p>
-        </div>
-        <div class="City_Stats_Output_Container_Item">
-          <h5 class="Text1">Manufacturing</h5>
-          <p class="City_Stats_Output_Container_Text" id="AluminumPerTurn">0<img src="assets/aluminum.png" alt=""></p>
-          <p class="City_Stats_Output_Container_Text" id="GasolinePerTurn">0<img src="assets/gasoline.png" alt=""></p>
-          <p class="City_Stats_Output_Container_Text" id="MunitionsPerTurn">0<img src="assets/munitions.png" alt=""></p>
-          <p class="City_Stats_Output_Container_Text" id="SteelPerTurn">0<img src="assets/steel.png" alt=""></p>
-        </div>
-        <div class="City_Stats_Output_Container_Item">
-          <h5 class="Text1">Raw Resources</h5>
-          <p class="City_Stats_Output_Container_Text" id="BauxitePerTurn">0<img src="assets/bauxite.png" alt=""></p>
-          <p class="City_Stats_Output_Container_Text" id="CoalPerTurn">0<img src="assets/coal.png" alt=""></p>
-          <p class="City_Stats_Output_Container_Text"><img src="assets/food.png" alt="" id="FoodPerTurn">0</p>
-          <p class="City_Stats_Output_Container_Text" id="IronPerTurn">0<img src="assets/iron.png" alt=""></p>
-          <p class="City_Stats_Output_Container_Text" id="LeadPerTurn">0<img src="assets/lead.png" alt=""></p>
-          <p class="City_Stats_Output_Container_Text" id="OilPerTurn">0<img src="assets/oil.png" alt=""></p>
-          <p class="City_Stats_Output_Container_Text" id="UraniumPerTurn">0<img src="assets/uranium.png" alt=""></p>
-        </div>
-      </div>
-      <div class="City_Stats_Output_Container">
+        <h1 class="Text1">Resource Output is still WIP</h1>
+        <p class="Text1">Info: Resource usage is not accounted for. Money production calculation not implemented yet</p>
+        <div class="City_Stats_Output_Container">
           <div class="City_Stats_Output_Container_Item">
-            <h3 class="Text1">Output (per day)</h3>
-            <p class="City_Stats_Output_Container_Text"><img src="assets/money.png" alt="" id="MoneyPerDay">0</p>
+            <h3 class="Text1">Output (per turn)</h3>
+            <p class="City_Stats_Output_Container_Text" id="MoneyPerTurn">0<img src="assets/money.png" alt=""></p>
           </div>
           <div class="City_Stats_Output_Container_Item">
             <h5 class="Text1">Manufacturing</h5>
-            <p class="City_Stats_Output_Container_Text"><img src="assets/aluminum.png" alt="" id="AluminumPerDay">0</p>
-            <p class="City_Stats_Output_Container_Text"><img src="assets/gasoline.png" alt="" id="GasolinePerDay">0</p>
-            <p class="City_Stats_Output_Container_Text"><img src="assets/munitions.png" alt="" id="MunitionsPerDay">0</p>
-            <p class="City_Stats_Output_Container_Text"><img src="assets/steel.png" alt="" id="SteelPerDay">0</p>
+            <p class="City_Stats_Output_Container_Text" id="AluminumPerTurn">0<img src="assets/aluminum.png" alt=""></p>
+            <p class="City_Stats_Output_Container_Text" id="GasolinePerTurn">0<img src="assets/gasoline.png" alt=""></p>
+            <p class="City_Stats_Output_Container_Text" id="MunitionsPerTurn">0<img src="assets/munitions.png" alt=""></p>
+            <p class="City_Stats_Output_Container_Text" id="SteelPerTurn">0<img src="assets/steel.png" alt=""></p>
           </div>
           <div class="City_Stats_Output_Container_Item">
             <h5 class="Text1">Raw Resources</h5>
-            <p class="City_Stats_Output_Container_Text"><img src="assets/bauxite.png" alt="" id="BauxitePerDay">0</p>
-            <p class="City_Stats_Output_Container_Text"><img src="assets/coal.png" alt="" id="CoalPerDay">0</p>
-            <p class="City_Stats_Output_Container_Text"><img src="assets/food.png" alt="" id="FoodPerDay">0</p>
-            <p class="City_Stats_Output_Container_Text"><img src="assets/iron.png" alt="" id="IronPerDay">0</p>
-            <p class="City_Stats_Output_Container_Text"><img src="assets/lead.png" alt="" id="LeadPerDay">0</p>
-            <p class="City_Stats_Output_Container_Text"><img src="assets/oil.png" alt="" id="OilPerDay">0</p>
-            <p class="City_Stats_Output_Container_Text"><img src="assets/uranium.png" alt="" id="UraniumPerDay">0</p>
+            <p class="City_Stats_Output_Container_Text" id="BauxitePerTurn">0<img src="assets/bauxite.png" alt=""></p>
+            <p class="City_Stats_Output_Container_Text" id="CoalPerTurn">0<img src="assets/coal.png" alt=""></p>
+            <p class="City_Stats_Output_Container_Text" id="FoodPerTurn">0<img src="assets/food.png" alt=""></p>
+            <p class="City_Stats_Output_Container_Text" id="IronPerTurn">0<img src="assets/iron.png" alt=""></p>
+            <p class="City_Stats_Output_Container_Text" id="LeadPerTurn">0<img src="assets/lead.png" alt=""></p>
+            <p class="City_Stats_Output_Container_Text" id="OilPerTurn">0<img src="assets/oil.png" alt=""></p>
+            <p class="City_Stats_Output_Container_Text" id="UraniumPerTurn">0<img src="assets/uranium.png" alt=""></p>
+          </div>
         </div>
-    </div>
-
-		</div>
+        <div class="City_Stats_Output_Container">
+          <div class="City_Stats_Output_Container_Item">
+            <h3 class="Text1">Output (per day)</h3>
+            <p class="City_Stats_Output_Container_Text" id="MoneyPerDay">0<img src="assets/money.png" alt=""></p>
+          </div>
+          <div class="City_Stats_Output_Container_Item">
+            <h5 class="Text1">Manufacturing</h5>
+            <p class="City_Stats_Output_Container_Text" id="AluminumPerDay">0<img src="assets/aluminum.png" alt=""></p>
+            <p class="City_Stats_Output_Container_Text" id="GasolinePerDay">0<img src="assets/gasoline.png" alt=""></p>
+            <p class="City_Stats_Output_Container_Text" id="MunitionsPerDay">0<img src="assets/munitions.png" alt=""></p>
+            <p class="City_Stats_Output_Container_Text" id="SteelPerDay">0<img src="assets/steel.png" alt=""></p>
+          </div>
+          <div class="City_Stats_Output_Container_Item">
+            <h5 class="Text1">Raw Resources</h5>
+            <p class="City_Stats_Output_Container_Text" id="BauxitePerDay">0<img src="assets/bauxite.png" alt=""></p>
+            <p class="City_Stats_Output_Container_Text" id="CoalPerDay">0<img src="assets/coal.png" alt=""></p>
+            <p class="City_Stats_Output_Container_Text" id="FoodPerDay">0<img src="assets/food.png" alt=""></p>
+            <p class="City_Stats_Output_Container_Text" id="IronPerDay">0<img src="assets/iron.png" alt=""></p>
+            <p class="City_Stats_Output_Container_Text" id="LeadPerDay">0<img src="assets/lead.png" alt=""></p>
+            <p class="City_Stats_Output_Container_Text" id="OilPerDay">0<img src="assets/oil.png" alt=""></p>
+            <p class="City_Stats_Output_Container_Text" id="UraniumPerDay">0<img src="assets/uranium.png" alt=""></p>
+          </div>
+      	</div>
+	</div>
 	</body>
 </html>
 
 <script>
-function Output() {
-  var MoneyPerTurn = 2;
-  document.getElementById("MoneyPerTurn").innerHTML = MoneyPerTurn;
+	// Money Calculation
 
-  var Land = parseInt(document.getElementById("Land").value);
-  var Farms = parseInt(document.getElementById("Farms").value);
-
-  var FoodPerDay = Farms * (Land / 500);
-  var FoodPerTurn = FoodPerDay / 12;
-
-  document.getElementById("FoodPerDay").innerHTML = FoodPerDay;
-  document.getElementById("FoodPerTurn").innerHTML = FoodPerTurn;
-  console.log(FoodPerDay)
-  console.log(FoodPerTurn)
-}
-
-function Basic_Change() {
-	var InfraNeeded = parseFloat(document.getElementById("infra_needed").value);
-	var Slots = parseInt(document.getElementById("slots").value);
-	var NuclearPlantsNeeded = parseInt(document.getElementById("nuclear_plants_needed").value);
-	var Land = parseInt(document.getElementById("Land").value);
-	var CityAge = parseInt(document.getElementById("City_Age").value);
-
-	var Farms = parseInt(document.getElementById("Farms").value);
-	var CoalMines = parseInt(document.getElementById("Coal_Mines").value);
-	var IronMines = parseInt(document.getElementById("Iron_Mines").value);
-	var LeadMines = parseInt(document.getElementById("Lead_Mines").value);
-	var OilWells = parseInt(document.getElementById("Oil_Wells").value);
-	var BauxiteMines = parseInt(document.getElementById("Bauxite_Mines").value);
-	var UraniumMines = parseInt(document.getElementById("Uranium_Mines").value);
-
-	var OilRefinery = parseInt(document.getElementById("Oil_Refinery").value);
-	var SteelMills = parseInt(document.getElementById("Steel_Mills").value);
-	var AluminumRefinery = parseInt(document.getElementById("Aluminum_Refinery").value);
-	var MunitionsFactory = parseInt(document.getElementById("Munitions_Factory").value);
-
-	var PoliceStation = parseInt(document.getElementById("Police_Station").value);
-	var Hospital = parseInt(document.getElementById("Hospital").value);
-	var RecyclingCenter = parseInt(document.getElementById("Recycling_Center").value);
-	var Subway = parseInt(document.getElementById("Subway").value);
-
-	var Supermarket = parseInt(document.getElementById("Supermarket").value);
-	var Bank = parseInt(document.getElementById("Bank").value);
-	var ShoppingMall = parseInt(document.getElementById("Shopping_Mall").value);
-	var Stadium = parseInt(document.getElementById("Stadium").value);
-
-	var Barracks = parseInt(document.getElementById("Barracks").value);
-	var Factory = parseInt(document.getElementById("Factory").value);
-	var Hangar = parseInt(document.getElementById("Hangar").value);
-	var Drydock = parseInt(document.getElementById("Drydock").value);
-
-	//Basic Check
-	if (InfraNeeded_new >= 5000) {
-		alert("Something isn't right here check your input again");
-		return false;
+	function MoneyCalculation() {
+		var Population = parseInt(document.getElementById("Population").value)
+		var Subway = parseInt(document.getElementById("Subway").value);
+		var Supermarket = parseInt(document.getElementById("Supermarket").value);
+		var Bank = parseInt(document.getElementById("Bank").value);
+		var ShoppingMall = parseInt(document.getElementById("Shopping_Mall").value);
+		var Stadium = parseInt(document.getElementById("Stadium").value);
+		var Commerce = Supermarket * 0 +
+			Bank * 0 +
+			ShoppingMall * 2 +
+			Stadium * 5
+		Subway * 8;
 	}
 
-	if (Land < 250 || Land > 10000) {
-		alert("Land must be between 250 and 10000");
-		return false;
+	// Resource Production Calculation
+
+	// Food
+	function calculateFoodProduction() {
+		var Farms = parseInt(document.getElementById("Farms").value);
+		var Land = parseInt(document.getElementById("Land").value);
+		var FoodPerDay = Farms * (Land / 75);
+
+		if (Farms < 0 || Farms > 20) {
+			return false;
+		}
+
+		var FoodModifier = 0;
+		switch (Farms) {
+			case 2:
+				FoodModifier = 0.0263;
+				break;
+			case 3:
+				FoodModifier = 0.0526;
+				break;
+			case 4:
+				FoodModifier = 0.0789;
+				break;
+			case 5:
+				FoodModifier = 0.1053;
+				break;
+			case 6:
+				FoodModifier = 0.1316;
+				break;
+			case 7:
+				FoodModifier = 0.1579;
+				break;
+			case 8:
+				FoodModifier = 0.1842;
+				break;
+			case 9:
+				FoodModifier = 0.2105;
+				break;
+			case 10:
+				FoodModifier = 0.2368;
+				break;
+			case 11:
+				FoodModifier = 0.2632;
+				break;
+			case 12:
+				FoodModifier = 0.2895;
+				break;
+			case 13:
+				FoodModifier = 0.3158;
+				break;
+			case 14:
+				FoodModifier = 0.3421;
+				break;
+			case 15:
+				FoodModifier = 0.3684;
+				break;
+			case 16:
+				FoodModifier = 0.3947;
+				break;
+			case 17:
+				FoodModifier = 0.4211;
+				break;
+			case 18:
+				FoodModifier = 0.4474;
+				break;
+			case 19:
+				FoodModifier = 0.4737;
+				break;
+			case 20:
+				FoodModifier = 0.5;
+				break;
+			default:
+				FoodModifier = 0;
+		}
+
+		FoodPerDay = FoodPerDay + (FoodPerDay * FoodModifier);
+		var FoodPerTurn = FoodPerDay / 12;
+
+		document.getElementById("FoodPerDay").innerHTML = FoodPerDay.toFixed(2) + '<img src="assets/food.png" alt="">';
+		document.getElementById("FoodPerTurn").innerHTML = FoodPerTurn.toFixed(2) + '<img src="assets/food.png" alt="">';
 	}
 
-	if (CityAge < 1 || CityAge > 5000) {
-		alert("City Age must be between 1 and 5000");
-		return false;
+	// Raw
+	function calculateCoalProduction() {
+		var CoalMines = parseInt(document.getElementById("Coal_Mines").value);
+		var CoalPerDay = CoalMines * 3;
+		var CoalPerTurn = CoalPerDay / 12;
+
+		if (CoalMines < 0 || CoalMines > 10) {
+			return false;
+		}
+
+		var CoalModifier = 0;
+		switch (CoalMines) {
+			case 2:
+				CoalModifier = 0.0556;
+				break;
+			case 3:
+				CoalModifier = 0.1111;
+				break;
+			case 4:
+				CoalModifier = 0.1667;
+				break;
+			case 5:
+				CoalModifier = 0.2222;
+				break;
+			case 6:
+				CoalModifier = 0.2778;
+				break;
+			case 7:
+				CoalModifier = 0.3333;
+				break;
+			case 8:
+				CoalModifier = 0.3889;
+				break;
+			case 9:
+				CoalModifier = 0.4444;
+				break;
+			case 10:
+				CoalModifier = 0.5;
+				break;
+			default:
+				CoalModifier = 0;
+				break;
+		}
+
+		CoalPerDay = CoalPerDay + (CoalPerDay * CoalModifier);
+		CoalPerTurn = CoalPerDay / 12;
+
+		document.getElementById("CoalPerDay").innerHTML = CoalPerDay.toFixed(2) + '<img src="assets/coal.png" alt="">';
+		document.getElementById("CoalPerTurn").innerHTML = CoalPerTurn.toFixed(2) + '<img src="assets/coal.png" alt="">';
 	}
 
-	//Raw Resources Check
-	if (Farms < 0 || Farms > 20) {
-		alert("Farms must be between 0 and 20");
-		return false;
+	function calculateBauxiteProduction() {
+		var BauxiteMines = parseInt(document.getElementById("Bauxite_Mines").value);
+		var BauxitePerDay = BauxiteMines * 3;
+		var BauxitePerTurn = BauxitePerDay / 12;
+
+		if (BauxiteMines < 0 || BauxiteMines > 10) {
+			return false;
+		}
+
+		var BauxiteModifier = 0;
+		switch (BauxiteMines) {
+			case 2:
+				BauxiteModifier = 0.0556;
+				break;
+			case 3:
+				BauxiteModifier = 0.1111;
+				break;
+			case 4:
+				BauxiteModifier = 0.1667;
+				break;
+			case 5:
+				BauxiteModifier = 0.2222;
+				break;
+			case 6:
+				BauxiteModifier = 0.2778;
+				break;
+			case 7:
+				BauxiteModifier = 0.3333;
+				break;
+			case 8:
+				BauxiteModifier = 0.3889;
+				break;
+			case 9:
+				BauxiteModifier = 0.4444;
+				break;
+			case 10:
+				BauxiteModifier = 0.5;
+				break;
+			default:
+				BauxiteModifier = 0;
+				break;
+		}
+
+		BauxitePerDay = BauxitePerDay + (BauxitePerDay * BauxiteModifier);
+		BauxitePerTurn = BauxitePerDay / 12;
+
+		document.getElementById("BauxitePerDay").innerHTML = BauxitePerDay.toFixed(2) + '<img src="assets/bauxite.png" alt="">';
+		document.getElementById("BauxitePerTurn").innerHTML = BauxitePerTurn.toFixed(2) + '<img src="assets/bauxite.png" alt="">';
 	}
 
-	if (CoalMines < 0 || CoalMines > 10) {
-		alert("Coal Mines must be between 0 and 10");
-		return false;
+	function calculateOilProduction() {
+		var OilWells = parseInt(document.getElementById("Oil_Wells").value);
+		var OilPerDay = OilWells * 3;
+		var OilPerTurn = OilPerDay / 12;
+
+		if (OilWells < 0 || OilWells > 10) {
+			return false;
+		}
+
+		var OilModifier = 0;
+		switch (OilWells) {
+			case 2:
+				OilModifier = 0.0556;
+				break;
+			case 3:
+				OilModifier = 0.1111;
+				break;
+			case 4:
+				OilModifier = 0.1667;
+				break;
+			case 5:
+				OilModifier = 0.2222;
+				break;
+			case 6:
+				OilModifier = 0.2778;
+				break;
+			case 7:
+				OilModifier = 0.3333;
+				break;
+			case 8:
+				OilModifier = 0.3889;
+				break;
+			case 9:
+				OilModifier = 0.4444;
+				break;
+			case 10:
+				OilModifier = 0.5;
+				break;
+			default:
+				OilModifier = 0;
+				break;
+		}
+
+		OilPerDay = OilPerDay + (OilPerDay * OilModifier);
+		OilPerTurn = OilPerDay / 12;
+
+		document.getElementById("OilPerDay").innerHTML = OilPerDay.toFixed(2) + '<img src="assets/oil.png" alt="">';
+		document.getElementById("OilPerTurn").innerHTML = OilPerTurn.toFixed(2) + '<img src="assets/oil.png" alt="">';
 	}
 
-	if (IronMines < 0 || IronMines > 10) {
-		alert("Iron Mines must be between 0 and 20");
-		return false;
+	function calculateIronProduction() {
+		var IronMines = parseInt(document.getElementById("Iron_Mines").value);
+		var IronPerDay = IronMines * 3;
+		var IronPerTurn = IronPerDay / 12;
+
+		if (IronMines < 0 || IronMines > 10) {
+			return false;
+		}
+
+		var IronModifier = 0;
+		switch (IronMines) {
+			case 2:
+				IronModifier = 0.0556;
+				break;
+			case 3:
+				IronModifier = 0.1111;
+				break;
+			case 4:
+				IronModifier = 0.1667;
+				break;
+			case 5:
+				IronModifier = 0.2222;
+				break;
+			case 6:
+				IronModifier = 0.2778;
+				break;
+			case 7:
+				IronModifier = 0.3333;
+				break;
+			case 8:
+				IronModifier = 0.3889;
+				break;
+			case 9:
+				IronModifier = 0.4444;
+				break;
+			case 10:
+				IronModifier = 0.5;
+				break;
+			default:
+				IronModifier = 0;
+				break;
+		}
+
+		IronPerDay = IronPerDay + (IronPerDay * IronModifier);
+		IronPerTurn = IronPerDay / 12;
+
+		document.getElementById("IronPerDay").innerHTML = IronPerDay.toFixed(2) + '<img src="assets/iron.png" alt="">';
+		document.getElementById("IronPerTurn").innerHTML = IronPerTurn.toFixed(2) + '<img src="assets/iron.png" alt="">';
 	}
 
-	if (LeadMines < 0 || LeadMines > 10) {
-		alert("Lead Mines must be between 0 and 10");
-		return false;
+	function calculateLeadProduction() {
+		var LeadMines = parseInt(document.getElementById("Lead_Mines").value);
+		var LeadPerDay = LeadMines * 3;
+		var LeadPerTurn = LeadPerDay / 12;
+
+		if (LeadMines < 0 || LeadMines > 10) {
+			return false;
+		}
+
+		var leadModifier = 0;
+		switch (LeadMines) {
+			case 2:
+				leadModifier = 0.0556;
+				break;
+			case 3:
+				leadModifier = 0.1111;
+				break;
+			case 4:
+				leadModifier = 0.1667;
+				break;
+			case 5:
+				leadModifier = 0.2222;
+				break;
+			case 6:
+				leadModifier = 0.2778;
+				break;
+			case 7:
+				leadModifier = 0.3333;
+				break;
+			case 8:
+				leadModifier = 0.3889;
+				break;
+			case 9:
+				leadModifier = 0.4444;
+				break;
+			case 10:
+				leadModifier = 0.5;
+				break;
+			default:
+				leadModifier = 0;
+				break;
+		}
+
+		LeadPerDay = LeadPerDay + (LeadPerDay * leadModifier);
+		LeadPerTurn = LeadPerDay / 12;
+
+		document.getElementById("LeadPerDay").innerHTML = LeadPerDay.toFixed(2) + '<img src="assets/lead.png" alt="">';
+		document.getElementById("LeadPerTurn").innerHTML = LeadPerTurn.toFixed(2) + '<img src="assets/lead.png" alt="">';
 	}
 
-	if (OilWells < 0 || OilWells > 10) {
-		alert("Oil Wells must be between 0 and 10");
-		return false;
+	function calculateUraniumProduction() {
+		var UraniumMines = parseInt(document.getElementById("Uranium_Mines").value);
+		var UraniumPerDay = UraniumMines * 3;
+		var UraniumPerTurn = UraniumPerDay / 12;
+
+		if (UraniumMines < 0 || UraniumMines > 5) {
+			return false;
+		}
+
+		var modifier = 0;
+		switch (UraniumMines) {
+			case 1:
+				modifier = 0;
+				break;
+			case 2:
+				modifier = 0.125;
+				break;
+			case 3:
+				modifier = 0.25;
+				break;
+			case 4:
+				modifier = 0.375;
+				break;
+			case 5:
+				modifier = 0.5;
+				break;
+		}
+
+		UraniumPerDay += UraniumPerDay * modifier;
+		UraniumPerTurn += UraniumPerTurn * modifier;
+
+		document.getElementById("UraniumPerDay").innerHTML = UraniumPerDay.toFixed(2) + '<img src="assets/uranium.png" alt="">';
+		document.getElementById("UraniumPerTurn").innerHTML = UraniumPerTurn.toFixed(2) + '<img src="assets/uranium.png" alt="">';
 	}
 
-	if (BauxiteMines < 0 || BauxiteMines > 10) {
-		alert("Bauxite Mines must be between 0 and 20");
-		return false;
+	// Manuf
+
+	function calculateGasolineProduction() {
+		var OilRefinery = parseInt(document.getElementById("Oil_Refinery").value);
+		var GasolinePerDay = OilRefinery * 6;
+		var GasolinePerTurn = GasolinePerDay / 12;
+
+		if (OilRefinery < 0 || OilRefinery > 5) {
+			return false;
+		}
+
+		var modifier = 0;
+		switch (OilRefinery) {
+			case 1:
+				modifier = 0;
+				break;
+			case 2:
+				modifier = 0.125;
+				break;
+			case 3:
+				modifier = 0.25;
+				break;
+			case 4:
+				modifier = 0.375;
+				break;
+			case 5:
+				modifier = 0.5;
+				break;
+		}
+
+		GasolinePerDay += GasolinePerDay * modifier;
+		GasolinePerTurn += GasolinePerTurn * modifier;
+
+		document.getElementById("GasolinePerDay").innerHTML = GasolinePerDay.toFixed(2) + '<img src="assets/gasoline.png" alt="">';
+		document.getElementById("GasolinePerTurn").innerHTML = GasolinePerTurn.toFixed(2) + '<img src="assets/gasoline.png" alt="">';
 	}
 
-	if (UraniumMines < 0 || UraniumMines > 5) {
-		alert("Uranium Mines must be between 0 and 5");
-		return false;
+	function calculateSteelProduction() {
+		var SteelMills = parseInt(document.getElementById("Steel_Mills").value);
+		var SteelPerDay = SteelMills * 9;
+		var SteelPerTurn = SteelPerDay / 12;
+
+		if (SteelMills < 0 || SteelMills > 5) {
+			return false;
+		}
+
+		var modifier = 0;
+		switch (SteelMills) {
+			case 1:
+				modifier = 0;
+				break;
+			case 2:
+				modifier = 0.125;
+				break;
+			case 3:
+				modifier = 0.25;
+				break;
+			case 4:
+				modifier = 0.375;
+				break;
+			case 5:
+				modifier = 0.5;
+				break;
+		}
+
+		SteelPerDay += SteelPerDay * modifier;
+		SteelPerTurn += SteelPerTurn * modifier;
+
+		document.getElementById("SteelPerDay").innerHTML = SteelPerDay.toFixed(2) + '<img src="assets/steel.png" alt="">';
+		document.getElementById("SteelPerTurn").innerHTML = SteelPerTurn.toFixed(2) + '<img src="assets/steel.png" alt="">';
 	}
 
-	//Manufacturing Check
-	if (OilRefinery < 0 || OilRefinery > 5) {
-		alert("Oil Refinery must be between 0 and 5");
-		return false;
+	function calculateAluminumProduction() {
+		var AluminumRefinery = parseInt(document.getElementById("Aluminum_Refinery").value);
+		var AluminumPerDay = AluminumRefinery * 9;
+		var AluminumPerTurn = AluminumPerDay / 12;
+
+		if (AluminumRefinery < 0 || AluminumRefinery > 5) {
+			return false;
+		}
+
+		var modifier = 0;
+		switch (AluminumRefinery) {
+			case 1:
+				modifier = 0;
+				break;
+			case 2:
+				modifier = 0.125;
+				break;
+			case 3:
+				modifier = 0.25;
+				break;
+			case 4:
+				modifier = 0.375;
+				break;
+			case 5:
+				modifier = 0.5;
+				break;
+		}
+
+		AluminumPerDay += AluminumPerDay * modifier;
+		AluminumPerTurn += AluminumPerTurn * modifier;
+
+		document.getElementById("AluminumPerDay").innerHTML = AluminumPerDay.toFixed(2) + '<img src="assets/aluminum.png" alt="">';
+		document.getElementById("AluminumPerTurn").innerHTML = AluminumPerTurn.toFixed(2) + '<img src="assets/aluminum.png" alt="">';
 	}
 
-	if (SteelMills < 0 || SteelMills > 5) {
-		alert("Steel Mills must be between 0 and 5");
-		return false;
+	function calculateMunitionsProduction() {
+		var MunitionsFactory = parseInt(document.getElementById("Munitions_Factory").value);
+		var MunitionsPerDay = MunitionsFactory * 18;
+		var MunitionsPerTurn = MunitionsPerDay / 12;
+
+		if (MunitionsFactory < 0 || MunitionsFactory > 5) {
+			return false;
+		}
+
+		var modifier = 0;
+		switch (MunitionsFactory) {
+			case 1:
+				modifier = 0;
+				break;
+			case 2:
+				modifier = 0.125;
+				break;
+			case 3:
+				modifier = 0.25;
+				break;
+			case 4:
+				modifier = 0.375;
+				break;
+			case 5:
+				modifier = 0.5;
+				break;
+		}
+
+		MunitionsPerDay += MunitionsPerDay * modifier;
+		MunitionsPerTurn += MunitionsPerTurn * modifier;
+
+		document.getElementById("MunitionsPerDay").innerHTML = MunitionsPerDay.toFixed(2) + '<img src="assets/munitions.png" alt="">';
+		document.getElementById("MunitionsPerTurn").innerHTML = MunitionsPerTurn.toFixed(2) + '<img src="assets/munitions.png" alt="">';
 	}
 
-	if (AluminumRefinery < 0 || AluminumRefinery > 5) {
-		alert("Aluminum Refinery must be between 0 and 5");
-		return false;
+	function CalculatePopulation() {
+		var Infrastructure = document.getElementById("infra_needed").value;
+		var CityAge = parseInt(document.getElementById("City_Age").value);
+		var Land = parseInt(document.getElementById("Land").value)
+		var Hospitals = document.getElementById("Hospital").value;
+		var Farms = parseInt(document.getElementById("Farms").value);
+		var CoalMines = parseInt(document.getElementById("Coal_Mines").value);
+		var IronMines = parseInt(document.getElementById("Iron_Mines").value);
+		var LeadMines = parseInt(document.getElementById("Lead_Mines").value);
+		var OilWells = parseInt(document.getElementById("Oil_Wells").value);
+		var BauxiteMines = parseInt(document.getElementById("Bauxite_Mines").value);
+		var UraniumMines = parseInt(document.getElementById("Uranium_Mines").value);
+		var OilRefinery = parseInt(document.getElementById("Oil_Refinery").value);
+		var SteelMills = parseInt(document.getElementById("Steel_Mills").value);
+		var AluminumRefinery = parseInt(document.getElementById("Aluminum_Refinery").value);
+		var MunitionsFactory = parseInt(document.getElementById("Munitions_Factory").value);
+		var PoliceStation = parseInt(document.getElementById("Police_Station").value);
+		var Hospitals = document.getElementById("Hospital").value;
+		var RecyclingCenter = parseInt(document.getElementById("Recycling_Center").value);
+		var Subway = parseInt(document.getElementById("Subway").value);
+		var Supermarket = parseInt(document.getElementById("Supermarket").value);
+		var Bank = parseInt(document.getElementById("Bank").value);
+		var ShoppingMall = parseInt(document.getElementById("Shopping_Mall").value);
+		var Stadium = parseInt(document.getElementById("Stadium").value);
+		var Barracks = parseInt(document.getElementById("Barracks").value);
+		var Factory = parseInt(document.getElementById("Factory").value);
+		var Hangar = parseInt(document.getElementById("Hangar").value);
+		var Drydock = parseInt(document.getElementById("Drydock").value);
+		var NuclearPlants = parseInt(document.getElementById("nuclear_plants_needed").value);
+
+		var BasePopulation = Infrastructure * 100;
+		var PopulationDensity = BasePopulation / Land
+		var pollutionPoints = BauxiteMines * 12 +
+			OilRefinery * 32 +
+			PoliceStation * 1 +
+			Supermarket * 0 +
+			Barracks * 0 +
+			CoalMines * 12 +
+			SteelMills * 40 +
+			Hospitals * 4 +
+			Bank * 0 +
+			Factory * 0 +
+			NuclearPlants * 0 +
+			Farms * 2 +
+			AluminumRefinery * 40 +
+			RecyclingCenter * -70 +
+			ShoppingMall * 2 +
+			Hangar * 0 +
+			IronMines * 12 +
+			MunitionsFactory * 32 +
+			Subway * -45 +
+			Stadium * 5 +
+			Drydock * 0 +
+			LeadMines * 12 +
+			OilWells * 12 +
+			UraniumMines * 20;
+
+		var pollutionIndex = pollutionPoints;
+		var diseaseIncrease = 0.05 * pollutionIndex;
+
+		var Supermarket = parseInt(document.getElementById("Supermarket").value);
+		var Bank = parseInt(document.getElementById("Bank").value);
+		var ShoppingMall = parseInt(document.getElementById("Shopping_Mall").value);
+		var Stadium = parseInt(document.getElementById("Stadium").value);
+		var Subway = parseInt(document.getElementById("Subway").value);
+
+		var Commerce = Supermarket * 0 +
+			Bank * 0 +
+			ShoppingMall * 2 +
+			Stadium * 5
+		Subway * 8;
+
+		var pollutionIndex = diseaseIncrease;
+		var PollutionModifier = pollutionIndex * 0.05;
+		var HospitalsModifier = Hospitals * 2.5;
+		var DiseaseRate = (((PopulationDensity ** 2) * 0.01) - 25) / 100 + (BasePopulation / 100000) + PollutionModifier - HospitalsModifier;
+		var policeModifier = (PoliceStation * 2.5);
+		var CrimeRate = ((103 - Commerce) ** 2 + Infrastructure * 100) / 111111 - policeModifier;
+		var ageBonus = 1 + Math.log(CityAge) / 15;
+		var popDensity = BasePopulation / Land;
+		var crimeDeaths = (CrimeRate / 10) * (Infrastructure * 100) - 25;
+		var diseaseDeaths = DiseaseRate * BasePopulation;
+		var diseaseRateWithPollution = DiseaseRate + diseaseIncrease;
+		var popWithPollution = (BasePopulation - ((diseaseRateWithPollution * 100 * Infrastructure) / 100) - Math.max(((CrimeRate / 10) * (100 * Infrastructure) - 25), 0) * ageBonus) * ageBonus;
+
+		document.getElementById("Disease_Rate").value = diseaseRateWithPollution.toFixed(2);
+		document.getElementById("Pollution_Index").value = pollutionPoints.toFixed(2);
+		document.getElementById("Crime_Rate").value = CrimeRate.toFixed(2);
+		document.getElementById("Population").value = popWithPollution.toFixed(0);
+		document.getElementById("Population_Density").value = PopulationDensity.toFixed(0);
+		document.getElementById("Commerce").value = Commerce.toFixed(0);
 	}
 
-	if (MunitionsFactory < 0 || MunitionsFactory > 5) {
-		alert("Munitions Factory must be between 0 and 5");
-		return false;
+	function Basic_Change() {
+		var InfraNeeded = parseFloat(document.getElementById("infra_needed").value);
+		var Slots = parseInt(document.getElementById("slots").value);
+		var NuclearPlantsNeeded = parseInt(document.getElementById("nuclear_plants_needed").value);
+		var Land = parseInt(document.getElementById("Land").value);
+		var CityAge = parseInt(document.getElementById("City_Age").value);
+
+		var Farms = parseInt(document.getElementById("Farms").value);
+		var CoalMines = parseInt(document.getElementById("Coal_Mines").value);
+		var IronMines = parseInt(document.getElementById("Iron_Mines").value);
+		var LeadMines = parseInt(document.getElementById("Lead_Mines").value);
+		var OilWells = parseInt(document.getElementById("Oil_Wells").value);
+		var BauxiteMines = parseInt(document.getElementById("Bauxite_Mines").value);
+		var UraniumMines = parseInt(document.getElementById("Uranium_Mines").value);
+
+		var OilRefinery = parseInt(document.getElementById("Oil_Refinery").value);
+		var SteelMills = parseInt(document.getElementById("Steel_Mills").value);
+		var AluminumRefinery = parseInt(document.getElementById("Aluminum_Refinery").value);
+		var MunitionsFactory = parseInt(document.getElementById("Munitions_Factory").value);
+
+		var PoliceStation = parseInt(document.getElementById("Police_Station").value);
+		var Hospital = parseInt(document.getElementById("Hospital").value);
+		var RecyclingCenter = parseInt(document.getElementById("Recycling_Center").value);
+		var Subway = parseInt(document.getElementById("Subway").value);
+
+		var Supermarket = parseInt(document.getElementById("Supermarket").value);
+		var Bank = parseInt(document.getElementById("Bank").value);
+		var ShoppingMall = parseInt(document.getElementById("Shopping_Mall").value);
+		var Stadium = parseInt(document.getElementById("Stadium").value);
+
+		var Barracks = parseInt(document.getElementById("Barracks").value);
+		var Factory = parseInt(document.getElementById("Factory").value);
+		var Hangar = parseInt(document.getElementById("Hangar").value);
+		var Drydock = parseInt(document.getElementById("Drydock").value);
+
+		// Basic Check
+		if (InfraNeeded_new >= 5000) {
+			alert("Something isn't right here check your input again");
+			return false;
+		}
+
+		if (Land < 250 || Land > 10000) {
+			alert("Land must be between 250 and 10000");
+			return false;
+		}
+
+		if (CityAge < 1 || CityAge > 5000) {
+			alert("City Age must be between 1 and 5000");
+			return false;
+		}
+
+		// Raw Resources Check
+		if (Farms < 0 || Farms > 20) {
+			alert("Farms must be between 0 and 20");
+			return false;
+		}
+
+		if (CoalMines < 0 || CoalMines > 10) {
+			alert("Coal Mines must be between 0 and 10");
+			return false;
+		}
+
+		if (IronMines < 0 || IronMines > 10) {
+			alert("Iron Mines must be between 0 and 10");
+			return false;
+		}
+
+		if (LeadMines < 0 || LeadMines > 10) {
+			alert("Lead Mines must be between 0 and 10");
+			return false;
+		}
+
+		if (OilWells < 0 || OilWells > 10) {
+			alert("Oil Wells must be between 0 and 10");
+			return false;
+		}
+
+		if (BauxiteMines < 0 || BauxiteMines > 10) {
+			alert("Bauxite Mines must be between 0 and 10");
+			return false;
+		}
+
+		if (UraniumMines < 0 || UraniumMines > 5) {
+			alert("Uranium Mines must be between 0 and 5");
+			return false;
+		}
+
+		// Manufacturing Check
+		if (OilRefinery < 0 || OilRefinery > 5) {
+			alert("Oil Refinery must be between 0 and 5");
+			return false;
+		}
+
+		if (SteelMills < 0 || SteelMills > 5) {
+			alert("Steel Mills must be between 0 and 5");
+			return false;
+		}
+
+		if (AluminumRefinery < 0 || AluminumRefinery > 5) {
+			alert("Aluminum Refinery must be between 0 and 5");
+			return false;
+		}
+
+		if (MunitionsFactory < 0 || MunitionsFactory > 5) {
+			alert("Munitions Factory must be between 0 and 5");
+			return false;
+		}
+
+		// Civil Check
+		if (PoliceStation < 0 || PoliceStation > 5) {
+			alert("Police Station must be between 0 and 5");
+			return false;
+		}
+
+		if (Hospital < 0 || Hospital > 5) {
+			alert("Hospital must be between 0 and 5");
+			return false;
+		}
+
+		if (RecyclingCenter < 0 || RecyclingCenter > 3) {
+			alert("Recycling Center must be between 0 and 3");
+			return false;
+		}
+
+		if (Subway < 0 || Subway > 1) {
+			alert("Subway must be between 0 and 1");
+			return false;
+		}
+
+		// Commerce Check
+		if (Supermarket < 0 || Supermarket > 6) {
+			alert("Supermarket must be between 0 and 6");
+			return false;
+		}
+
+		if (Bank < 0 || Bank > 5) {
+			alert("Bank must be between 0 and 5");
+			return false;
+		}
+
+		if (ShoppingMall < 0 || ShoppingMall > 4) {
+			alert("Shopping Mall must be between 0 and 4");
+			return false;
+		}
+
+		if (Stadium < 0 || Stadium > 3) {
+			alert("Stadium must be between 0 and 3");
+			return false;
+		}
+
+		// Military Check
+		if (Barracks < 0 || Barracks > 5) {
+			alert("Barracks must be between 0 and 5");
+			return false;
+		}
+
+		if (Factory < 0 || Factory > 5) {
+			alert("Factory must be between 0 and 5");
+			return false;
+		}
+
+		if (Hangar < 0 || Hangar > 5) {
+			alert("Hangar must be between 0 and 5");
+			return false;
+		}
+
+		if (Drydock < 0 || Drydock > 3) {
+			alert("Drydock must be between 0 and 3");
+			return false;
+		}
+
+		var Slots_new = Farms + CoalMines + IronMines + LeadMines + OilWells + BauxiteMines + UraniumMines + OilRefinery + SteelMills + AluminumRefinery + MunitionsFactory + PoliceStation + Hospital + RecyclingCenter + Subway + Supermarket + Bank + ShoppingMall + Stadium + Barracks + Factory + Hangar + Drydock;
+		var InfraNeeded_new = Slots * 50;
+		var NuclearPlantsNeeded_new = InfraNeeded_new / 2000;
+		var NuclearPlantsNeeded_new_rounded = Math.ceil(NuclearPlantsNeeded_new);
+		var Slots_new = Slots_new + NuclearPlantsNeeded_new_rounded
+
+		document.getElementById("slots").value = Slots_new;
+		document.getElementById("infra_needed").value = InfraNeeded_new;
+		document.getElementById("nuclear_plants_needed").value = NuclearPlantsNeeded_new_rounded;
+
+		var InfraNeeded_new = document.getElementById("slots").value * 50;
+
+		document.getElementById("infra_needed").value = InfraNeeded_new;
+
+		let data = {
+			infra_needed: InfraNeeded_new,
+			imp_total: Slots_new,
+			imp_coalpower: 0,
+			imp_oilpower: 0,
+			imp_windpower: 0,
+			imp_nuclearpower: NuclearPlantsNeeded_new_rounded,
+			imp_coalmine: CoalMines,
+			imp_oilwell: OilWells,
+			imp_uramine: UraniumMines,
+			imp_leadmine: LeadMines,
+			imp_ironmine: IronMines,
+			imp_bauxitemine: BauxiteMines,
+			imp_farm: Farms,
+			imp_gasrefinery: OilRefinery,
+			imp_aluminumrefinery: AluminumRefinery,
+			imp_munitionsfactory: MunitionsFactory,
+			imp_steelmill: SteelMills,
+			imp_policestation: PoliceStation,
+			imp_hospital: Hospital,
+			imp_recyclingcenter: RecyclingCenter,
+			imp_subway: Subway,
+			imp_supermarket: Supermarket,
+			imp_bank: Bank,
+			imp_mall: ShoppingMall,
+			imp_stadium: Stadium,
+			imp_barracks: Barracks,
+			imp_factory: Factory,
+			imp_hangars: Hangar,
+			imp_drydock: Drydock
+		};
+
+		let jsonString = JSON.stringify(data, null, 4);
+
+		jsonString = jsonString.replace('{', '{\n    ');
+		jsonString = jsonString.replace(/,\n}/, '\n}');
+		jsonString = jsonString.replace(/": /g, '": ');
+
+		document.getElementById("OutPut_Export_City").innerHTML = jsonString;
 	}
-
-	//Civil Check
-	if (PoliceStation < 0 || PoliceStation > 5) {
-		alert("Police Station must be between 0 and 5");
-		return false;
-	}
-
-	if (Hospital < 0 || Hospital > 5) {
-		alert("Hospital must be between 0 and 5");
-		return false;
-	}
-
-	if (RecyclingCenter < 0 || RecyclingCenter > 3) {
-		alert("Recycling Center must be between 0 and 3");
-		return false;
-	}
-
-	if (Subway < 0 || Subway > 1) {
-		alert("Subway must be between 0 and 1");
-		return false;
-	}
-
-	//Commerce Check
-	if (Supermarket < 0 || Supermarket > 6) {
-		alert("Supermarket must be between 0 and 6");
-		return false;
-	}
-
-	if (Bank < 0 || Bank > 5) {
-		alert("Bank must be between 0 and 5");
-		return false;
-	}
-
-	if (ShoppingMall < 0 || ShoppingMall > 4) {
-		alert("Shopping Mall must be between 0 and 4");
-		return false;
-	}
-
-	if (Stadium < 0 || Stadium > 3) {
-		alert("Stadium must be between 0 and 3");
-		return false;
-	}
-
-	//Military Check
-	if (Barracks < 0 || Barracks > 5) {
-		alert("Barracks must be between 0 and 5");
-		return false;
-	}
-
-	if (Factory < 0 || Factory > 5) {
-		alert("Factory must be between 0 and 5");
-		return false;
-	}
-
-	if (Hangar < 0 || Hangar > 5) {
-		alert("Hangar must be between 0 and 5");
-		return false;
-	}
-
-	if (Drydock < 0 || Drydock > 3) {
-		alert("Drydock must be between 0 and 3");
-		return false;
-	}
-
-	var Slots_new = Farms + CoalMines + IronMines + LeadMines + OilWells + BauxiteMines + UraniumMines + OilRefinery + SteelMills + AluminumRefinery + MunitionsFactory + PoliceStation + Hospital + RecyclingCenter + Subway + Supermarket + Bank + ShoppingMall + Stadium + Barracks + Factory + Hangar + Drydock;
-	var InfraNeeded_new = Slots * 50;
-	var NuclearPlantsNeeded_new = InfraNeeded_new / 2000;
-	var NuclearPlantsNeeded_new_rounded = Math.ceil(NuclearPlantsNeeded_new);
-	var Slots_new = Slots_new + NuclearPlantsNeeded_new_rounded
-
-	document.getElementById("slots").value = Slots_new;
-	document.getElementById("infra_needed").value = InfraNeeded_new;
-	document.getElementById("nuclear_plants_needed").value = NuclearPlantsNeeded_new_rounded;
-
-	var InfraNeeded_new = document.getElementById("slots").value * 50;
-
-	document.getElementById("infra_needed").value = InfraNeeded_new;
-
-	let data = {
-		infra_needed: InfraNeeded_new,
-		imp_total: Slots_new,
-		imp_coalpower: 0,
-		imp_oilpower: 0,
-		imp_windpower: 0,
-		imp_nuclearpower: NuclearPlantsNeeded_new_rounded,
-		imp_coalmine: CoalMines,
-		imp_oilwell: OilWells,
-		imp_uramine: UraniumMines,
-		imp_leadmine: LeadMines,
-		imp_ironmine: IronMines,
-		imp_bauxitemine: BauxiteMines,
-		imp_farm: Farms,
-		imp_gasrefinery: OilRefinery,
-		imp_aluminumrefinery: AluminumRefinery,
-		imp_munitionsfactory: MunitionsFactory,
-		imp_steelmill: SteelMills,
-		imp_policestation: PoliceStation,
-		imp_hospital: Hospital,
-		imp_recyclingcenter: RecyclingCenter,
-		imp_subway: Subway,
-		imp_supermarket: Supermarket,
-		imp_bank: Bank,
-		imp_mall: ShoppingMall,
-		imp_stadium: Stadium,
-		imp_barracks: Barracks,
-		imp_factory: Factory,
-		imp_hangars: Hangar,
-		imp_drydock: Drydock
-	};
-
-	let jsonString = JSON.stringify(data, null, 4);
-
-	jsonString = jsonString.replace('{', '{\n    ');
-	jsonString = jsonString.replace(/,\n}/, '\n}');
-	jsonString = jsonString.replace(/": /g, '": ');
-
-	document.getElementById("OutPut_Export_City").innerHTML = jsonString;
-}
 </script>
 
 <style>
@@ -492,12 +1121,6 @@ function Basic_Change() {
   justify-content: flex-start;
 }
 
-.Text_Area {
-  margin-top: 50px;
-  width: 500px;
-  height: 500px;
-}
-
 .Text1 {
   color: white;
 }
@@ -525,5 +1148,19 @@ function Basic_Change() {
   transition: 2s;
   margin-left: 30px;
   margin-right: 30px;
+}
+
+.city_Simulator_calculator_container_text {
+  color: white;
+  flex: 0 0 auto;
+  width: auto;
+  height: auto;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.Calculate_Button {
+  margin-bottom: 50px;
 }
 </style>
