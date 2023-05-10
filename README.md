@@ -19,7 +19,7 @@
 ### Known Issues
 ##### City Simulator
 - Food Calculations might be slightly off in some cases
-- Commerce and money calculation is currently dissabled as some bugs need to be fixed
+- Commerce and money calculation is currently disabled as some bugs need to be fixed
 
 ##
 
