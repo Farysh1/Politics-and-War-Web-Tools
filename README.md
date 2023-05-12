@@ -3,9 +3,10 @@
 ## These [tools](https://farysh1.github.io/UCR_Tools/) were made and are maintained by the [UCR](https://politicsandwar.com/alliance/id=8651) for all P&W players to use.
 
 ### Features
-- City Cost Calculator (Only partially done)
+- City Cost Calculator
 - War and Spy range calculator
-- City Simulator
+- City Simulator (Only partially done)
+- FA Treaty Creation Tool (WIP)
 - More to come in the future
 
 #
