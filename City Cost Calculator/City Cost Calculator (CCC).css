@@ -1,0 +1,85 @@
+.background {
+    background-color: black;
+}
+
+.city_number_calculator_container {
+    width: 100%;
+    height: 522px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.city_number_calculator_container_text {
+    color: white;
+    flex: 0 0 auto;
+    width: auto;
+    height: auto;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.city_number_calculator_text2 {
+    color: white;
+    padding-bottom: 5px;
+}
+
+.city_number_calculator_text3 {
+    color: white;
+    padding-bottom: 30px;
+}
+
+.city_number_calculator_text51 {
+    color: white;
+}
+
+.city_number_input {
+    margin-bottom: 20px;
+    color: black;
+}
+
+.cash_display {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cash_display_img {
+    object-fit: cover;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 32px;
+    padding-right: 10px;
+}
+
+.padding {
+    color: white;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.back_arrow {
+    width: 25px;
+    height: 25px;
+    align-self: flex-start;
+}
+
+.city_number_calculator_text {
+    color: white;
+    width: 100%;
+    display: flex;
+    overflow: auto;
+    align-items: center;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.City_Image {
+    align-items: flex-start;
+    align-self: auto;
+    object-fit: cover;
+    width: auto;
+    padding-top: 20px;
+}
