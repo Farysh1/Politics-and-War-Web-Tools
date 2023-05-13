@@ -6,7 +6,7 @@
 - City Cost Calculator
 - War and Spy range calculator
 - City Simulator (Only partially done)
-- FA Treaty Creation Tool (WIP)
+- FA Treaty Creation Tool (experimental)
 - More to come in the future
 
 #
@@ -21,6 +21,27 @@
 ### Known Issues
 ##### City Simulator
 - Food Calculations might be slightly off in some cases
+
+##
+
+Changelog
+---------
+
+Version 0.0.1 - May 13, 2023
+----------------------------
+
+Added:
+- FA Treaty Creation Tool (experimental) 
+
+Changed:
+- Revamped File Structure
+- Improved performance
+
+Fixed:
+- some small bugs
+
+Removed:
+- none
 
 ##
 
