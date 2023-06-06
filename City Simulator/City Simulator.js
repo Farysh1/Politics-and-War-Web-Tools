@@ -1,21 +1,24 @@
 // Money Calculation
 
-function MoneyCalculation() {
-    var Population = parseInt(document.getElementById("Population").value)
-    var Subway = parseInt(document.getElementById("Subway").value);
-    var Supermarket = parseInt(document.getElementById("Supermarket").value);
-    var Bank = parseInt(document.getElementById("Bank").value);
-    var ShoppingMall = parseInt(document.getElementById("Shopping_Mall").value);
-    var Stadium = parseInt(document.getElementById("Stadium").value);
-    var Commerce = Supermarket * 0 +
-        Bank * 0 +
-        ShoppingMall * 2 +
-        Stadium * 5
-    Subway * 8;
+// function MoneyCalculation() {
+//     var Population = parseInt(document.getElementById("Population").value)
+//     var Subway = parseInt(document.getElementById("Subway").value);
+//     var Supermarket = parseInt(document.getElementById("Supermarket").value);
+//     var Bank = parseInt(document.getElementById("Bank").value);
+//     var ShoppingMall = parseInt(document.getElementById("Shopping_Mall").value);
+//     var Stadium = parseInt(document.getElementById("Stadium").value);
+//     var Commerce = Supermarket * 3 + Bank * 5 + ShoppingMall * 9 + Stadium * 12 + Subway * 8;
+//     var Minimum_Wage = 725 / (50 * 1000)
+//     var Average_Income = ((Commerce / 50) * Minimum_Wage) + Minimum_Wage;
 
-    console.log(Commerce);
-    document.getElementById("Commerce").innerHTML = Commerce.toFixed(2);
-}
+//     if (Commerce > 100) {
+//         Commerce = 100
+//     }
+//     var MoneyPerDay = Population * Average_Income * Commerce / 10000;
+//     var MoneyPerTurn = MoneyPerDay / 12;
+//     document.getElementById("MoneyPerTurn").innerHTML = MoneyPerTurn.toFixed(2) + '<img src="../assets/money.png" alt="">';
+//     document.getElementById("MoneyPerDay").innerHTML = MoneyPerDay.toFixed(2) + '<img src="../assets/money.png" alt="">';
+// }
 
 // Resource Production Calculation
 
@@ -593,11 +596,11 @@ function CalculatePopulation() {
     var Stadium = parseInt(document.getElementById("Stadium").value);
     var Subway = parseInt(document.getElementById("Subway").value);
 
-    var Commerce = Supermarket * 0 +
-        Bank * 0 +
-        ShoppingMall * 2 +
-        Stadium * 5
-    Subway * 8;
+    var Commerce = Supermarket * 3 + Bank * 5 + ShoppingMall * 9 + Stadium * 12 + Subway * 8;
+
+    if (Commerce > 100) {
+        Commerce = 100
+    }
 
     var pollutionIndex = diseaseIncrease;
     var PollutionModifier = pollutionIndex * 0.05;
