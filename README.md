@@ -26,15 +26,14 @@
 Changelog
 ---------
 
-Version 0.0.1 - May 13, 2023
+Version 0.0.2 - June 06, 2023
 ----------------------------
 
 Added:
-- none
+- City Simulator extra calculations
 
 Changed:
-- Revamped File Structure
-- Improved performance
+- changed stylistic properties
 
 Fixed:
 - some small bugs
