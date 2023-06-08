@@ -41,8 +41,11 @@
 }
 
 .city_number_input {
-    margin-bottom: 20px;
-    color: black;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 5px;
+    font-size: 16px;
 }
 
 .cash_display {
