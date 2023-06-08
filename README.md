@@ -26,17 +26,17 @@
 Changelog
 ---------
 
-Version 0.0.2 - June 06, 2023
+Version 0.0.3 - June 08, 2023
 ----------------------------
 
 Added:
-- City Simulator extra calculations
+- none
 
 Changed:
-- changed stylistic properties
+- updated the other tools to be mobile compatible
 
 Fixed:
-- some small bugs
+- none
 
 Removed:
 - none
