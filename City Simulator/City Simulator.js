@@ -1,24 +1,57 @@
+function toggleProjects() {
+    var optionsContainer = document.getElementById("ProjectsContainer");
+    var button = document.getElementById("toggleButton");
+  
+    if (optionsContainer.classList.contains("hidden")) {
+      optionsContainer.classList.remove("hidden");
+      optionsContainer.classList.add("visible");
+      button.textContent = "Hide Project Modifiers";
+    } else {
+      optionsContainer.classList.remove("visible");
+      optionsContainer.classList.add("hidden");
+      button.textContent = "Show Project Modifiers";
+    }
+  }    
+
 // Money Calculation
 
-// function MoneyCalculation() {
-//     var Population = parseInt(document.getElementById("Population").value)
-//     var Subway = parseInt(document.getElementById("Subway").value);
-//     var Supermarket = parseInt(document.getElementById("Supermarket").value);
-//     var Bank = parseInt(document.getElementById("Bank").value);
-//     var ShoppingMall = parseInt(document.getElementById("Shopping_Mall").value);
-//     var Stadium = parseInt(document.getElementById("Stadium").value);
-//     var Commerce = Supermarket * 3 + Bank * 5 + ShoppingMall * 9 + Stadium * 12 + Subway * 8;
-//     var Minimum_Wage = 725 / (50 * 1000)
-//     var Average_Income = ((Commerce / 50) * Minimum_Wage) + Minimum_Wage;
+function MoneyCalculation() {
+    var Population = parseInt(document.getElementById("Population").value);
+    var Supermarket = parseInt(document.getElementById("Supermarket").value);
+    var Bank = parseInt(document.getElementById("Bank").value);
+    var ShoppingMall = parseInt(document.getElementById("Shopping_Mall").value);
+    var Stadium = parseInt(document.getElementById("Stadium").value);
+    var Subway = parseInt(document.getElementById("Subway").value);
+    var Commerce = Supermarket * 3 + Bank * 5 + ShoppingMall * 9 + Stadium * 12 + Subway * 8;
 
-//     if (Commerce > 100) {
-//         Commerce = 100
-//     }
-//     var MoneyPerDay = Population * Average_Income * Commerce / 10000;
-//     var MoneyPerTurn = MoneyPerDay / 12;
-//     document.getElementById("MoneyPerTurn").innerHTML = MoneyPerTurn.toFixed(2) + '<img src="../assets/money.png" alt="">';
-//     document.getElementById("MoneyPerDay").innerHTML = MoneyPerDay.toFixed(2) + '<img src="../assets/money.png" alt="">';
-// }
+    if (document.getElementById("TS").checked) {
+        document.getElementById("ITC").checked = true; // Automatically check ITC if TS is checked
+        if (Commerce < 125) {
+            Commerce += 2; // Add 2 to Commerce when TS is checked
+        }
+        if (Commerce > 125) {
+            Commerce = 125; // Cap Commerce at 125 if it exceeds the limit
+        }
+    } else if (document.getElementById("ITC").checked) {
+        if (Commerce > 115) {
+            Commerce = 115; // Cap Commerce at 115 if ITC is checked
+        }
+    } else {
+        if (Commerce > 100) {
+            Commerce = 100; // Cap Commerce at 100 if neither ITC nor TS is checked
+        }
+    }
+
+    var MoneyPerDay = (((Commerce / 50) * 0.725) + 0.725) * Population;
+    var MoneyPerTurn = MoneyPerDay / 12;
+
+    // Formating the results
+    var formattedMoneyPerTurn = MoneyPerTurn.toLocaleString();
+    var formattedMoneyPerDay = MoneyPerDay.toLocaleString();
+
+    document.getElementById("MoneyPerTurn").innerHTML = formattedMoneyPerTurn + '<img src="../assets/money.png" alt="">';
+    document.getElementById("MoneyPerDay").innerHTML = formattedMoneyPerDay + '<img src="../assets/money.png" alt="">';
+}
 
 // Resource Production Calculation
 
@@ -26,10 +59,17 @@
 function calculateFoodProduction() {
     var Farms = parseInt(document.getElementById("Farms").value);
     var Land = parseInt(document.getElementById("Land").value);
-    var FoodPerDay = Farms * (Land / 75);
+    var FoodPerDay = Farms * (Land / 500);
 
     if (Farms < 0 || Farms > 20) {
         return false;
+    }
+
+    if (document.getElementById("MI").checked) // Mass Irrigation
+    {
+        var Farms = parseInt(document.getElementById("Farms").value);
+        var Land = parseInt(document.getElementById("Land").value);
+        var FoodPerDay = Farms * (Land / 400);
     }
 
     var FoodModifier = 0;
@@ -95,11 +135,15 @@ function calculateFoodProduction() {
             FoodModifier = 0;
     }
 
-    FoodPerDay = FoodPerDay + (FoodPerDay * FoodModifier);
+    var FoodPerDay = FoodPerDay + (FoodPerDay * FoodModifier);
     var FoodPerTurn = FoodPerDay / 12;
 
-    document.getElementById("FoodPerDay").innerHTML = FoodPerDay.toFixed(2) + '<img src="../assets/food.png" alt="">';
-    document.getElementById("FoodPerTurn").innerHTML = FoodPerTurn.toFixed(2) + '<img src="../assets/food.png" alt="">';
+    // Formating the results
+    formattedFoodPerDay = FoodPerDay.toLocaleString();
+    formattedFoodPerTurn = FoodPerTurn.toLocaleString();
+
+    document.getElementById("FoodPerDay").innerHTML = formattedFoodPerDay + '<img src="../assets/food.png" alt="">';
+    document.getElementById("FoodPerTurn").innerHTML = formattedFoodPerTurn + '<img src="../assets/food.png" alt="">';
 }
 
 // Raw
@@ -146,11 +190,15 @@ function calculateCoalProduction() {
             break;
     }
 
-    CoalPerDay = CoalPerDay + (CoalPerDay * CoalModifier);
-    CoalPerTurn = CoalPerDay / 12;
+    CoalPerDay += CoalPerDay + (CoalPerDay * CoalModifier);
+    CoalPerTurn += CoalPerDay / 12;
 
-    document.getElementById("CoalPerDay").innerHTML = CoalPerDay.toFixed(2) + '<img src="../assets/coal.png" alt="">';
-    document.getElementById("CoalPerTurn").innerHTML = CoalPerTurn.toFixed(2) + '<img src="../assets/coal.png" alt="">';
+    // Formating the results
+    var formattedCoalPerDay = CoalPerDay.toLocaleString();
+    var formattedCoalPerTurn = CoalPerTurn.toLocaleString();
+
+    document.getElementById("CoalPerDay").innerHTML = formattedCoalPerDay + '<img src="../assets/coal.png" alt="">';
+    document.getElementById("CoalPerTurn").innerHTML = formattedCoalPerTurn + '<img src="../assets/coal.png" alt="">';
 }
 
 function calculateBauxiteProduction() {
@@ -196,11 +244,15 @@ function calculateBauxiteProduction() {
             break;
     }
 
-    BauxitePerDay = BauxitePerDay + (BauxitePerDay * BauxiteModifier);
-    BauxitePerTurn = BauxitePerDay / 12;
+    BauxitePerDay += BauxitePerDay + (BauxitePerDay * BauxiteModifier);
+    BauxitePerTurn += BauxitePerDay / 12;
 
-    document.getElementById("BauxitePerDay").innerHTML = BauxitePerDay.toFixed(2) + '<img src="../assets/bauxite.png" alt="">';
-    document.getElementById("BauxitePerTurn").innerHTML = BauxitePerTurn.toFixed(2) + '<img src="../assets/bauxite.png" alt="">';
+    // Formating the results
+    var formattedBauxitePerDay = BauxitePerDay.toLocaleString();
+    var formattedBauxitePerTurn = BauxitePerTurn.toLocaleString();
+    
+    document.getElementById("BauxitePerDay").innerHTML = formattedBauxitePerDay + '<img src="../assets/bauxite.png" alt="">';
+    document.getElementById("BauxitePerTurn").innerHTML = formattedBauxitePerTurn + '<img src="../assets/bauxite.png" alt="">';
 }
 
 function calculateOilProduction() {
@@ -246,11 +298,15 @@ function calculateOilProduction() {
             break;
     }
 
-    OilPerDay = OilPerDay + (OilPerDay * OilModifier);
-    OilPerTurn = OilPerDay / 12;
+    OilPerDay += OilPerDay + (OilPerDay * OilModifier);
+    OilPerTurn += OilPerDay / 12;
 
-    document.getElementById("OilPerDay").innerHTML = OilPerDay.toFixed(2) + '<img src="../assets/oil.png" alt="">';
-    document.getElementById("OilPerTurn").innerHTML = OilPerTurn.toFixed(2) + '<img src="../assets/oil.png" alt="">';
+    // Formating the results
+    var formattedOilPerDay = OilPerDay.toLocaleString();
+    var formattedOilPerTurn = OilPerTurn.toLocaleString();
+    
+    document.getElementById("OilPerDay").innerHTML = formattedOilPerDay + '<img src="../assets/oil.png" alt="">';
+    document.getElementById("OilPerTurn").innerHTML = formattedOilPerTurn + '<img src="../assets/oil.png" alt="">';
 }
 
 function calculateIronProduction() {
@@ -296,11 +352,15 @@ function calculateIronProduction() {
             break;
     }
 
-    IronPerDay = IronPerDay + (IronPerDay * IronModifier);
-    IronPerTurn = IronPerDay / 12;
+    IronPerDay += IronPerDay + (IronPerDay * IronModifier);
+    IronPerTurn += IronPerDay / 12;
 
-    document.getElementById("IronPerDay").innerHTML = IronPerDay.toFixed(2) + '<img src="../assets/iron.png" alt="">';
-    document.getElementById("IronPerTurn").innerHTML = IronPerTurn.toFixed(2) + '<img src="../assets/iron.png" alt="">';
+    // Formating the results
+    var formattedIronPerDay = IronPerDay.toLocaleString();
+    var formattedIronPerTurn = IronPerTurn.toLocaleString();
+    
+    document.getElementById("IronPerDay").innerHTML = formattedIronPerDay + '<img src="../assets/iron.png" alt="">';
+    document.getElementById("IronPerTurn").innerHTML = formattedIronPerTurn + '<img src="../assets/iron.png" alt="">';
 }
 
 function calculateLeadProduction() {
@@ -346,11 +406,15 @@ function calculateLeadProduction() {
             break;
     }
 
-    LeadPerDay = LeadPerDay + (LeadPerDay * leadModifier);
-    LeadPerTurn = LeadPerDay / 12;
+    LeadPerDay += LeadPerDay + (LeadPerDay * leadModifier);
+    LeadPerTurn += LeadPerDay / 12;
 
-    document.getElementById("LeadPerDay").innerHTML = LeadPerDay.toFixed(2) + '<img src="../assets/lead.png" alt="">';
-    document.getElementById("LeadPerTurn").innerHTML = LeadPerTurn.toFixed(2) + '<img src="../assets/lead.png" alt="">';
+    // Formating the results
+    var formattedLeadPerDay = LeadPerDay.toLocaleString();
+    var formattedLeadPerTurn = LeadPerTurn.toLocaleString();
+    
+    document.getElementById("LeadPerDay").innerHTML = formattedLeadPerDay + '<img src="../assets/lead.png" alt="">';
+    document.getElementById("LeadPerTurn").innerHTML = formattedLeadPerTurn + '<img src="../assets/lead.png" alt="">';
 }
 
 function calculateUraniumProduction() {
@@ -360,6 +424,13 @@ function calculateUraniumProduction() {
 
     if (UraniumMines < 0 || UraniumMines > 5) {
         return false;
+    }
+
+    if (document.getElementById("UEP").checked) //Uranium Enrichment Program
+    {
+        var UraniumMines = parseInt(document.getElementById("Uranium_Mines").value);
+        var UraniumPerDay = UraniumMines * 6;
+        var UraniumPerTurn = UraniumPerDay / 12;
     }
 
     var modifier = 0;
@@ -384,8 +455,12 @@ function calculateUraniumProduction() {
     UraniumPerDay += UraniumPerDay * modifier;
     UraniumPerTurn += UraniumPerTurn * modifier;
 
-    document.getElementById("UraniumPerDay").innerHTML = UraniumPerDay.toFixed(2) + '<img src="../assets/uranium.png" alt="">';
-    document.getElementById("UraniumPerTurn").innerHTML = UraniumPerTurn.toFixed(2) + '<img src="../assets/uranium.png" alt="">';
+    // Formating the results
+    var formattedUraniumPerDay = UraniumPerDay.toLocaleString();
+    var formattedUraniumPerTurn = UraniumPerTurn.toLocaleString();
+    
+    document.getElementById("UraniumPerDay").innerHTML = formattedUraniumPerDay + '<img src="../assets/uranium.png" alt="">';
+    document.getElementById("UraniumPerTurn").innerHTML = formattedUraniumPerTurn + '<img src="../assets/uranium.png" alt="">';
 }
 
 // Manuf
@@ -397,6 +472,13 @@ function calculateGasolineProduction() {
 
     if (OilRefinery < 0 || OilRefinery > 5) {
         return false;
+    }
+
+    if (document.getElementById("EGR").checked) //Emergency Gasoline Reserve
+    {
+        var OilRefinery = parseInt(document.getElementById("Oil_Refinery").value);
+        var GasolinePerTurn = OilRefinery * 1;
+        var GasolinePerDay = GasolinePerTurn * 12;
     }
 
     var modifier = 0;
@@ -421,8 +503,12 @@ function calculateGasolineProduction() {
     GasolinePerDay += GasolinePerDay * modifier;
     GasolinePerTurn += GasolinePerTurn * modifier;
 
-    document.getElementById("GasolinePerDay").innerHTML = GasolinePerDay.toFixed(2) + '<img src="../assets/gasoline.png" alt="">';
-    document.getElementById("GasolinePerTurn").innerHTML = GasolinePerTurn.toFixed(2) + '<img src="../assets/gasoline.png" alt="">';
+    // Formating the results
+    var formattedGasolinePerDay = GasolinePerDay.toLocaleString();
+    var formattedGasolinePerTurn = GasolinePerTurn.toLocaleString();
+    
+    document.getElementById("GasolinePerDay").innerHTML = formattedGasolinePerDay + '<img src="../assets/gasoline.png" alt="">';
+    document.getElementById("GasolinePerTurn").innerHTML = formattedGasolinePerTurn + '<img src="../assets/gasoline.png" alt="">';
 }
 
 function calculateSteelProduction() {
@@ -432,6 +518,13 @@ function calculateSteelProduction() {
 
     if (SteelMills < 0 || SteelMills > 5) {
         return false;
+    }
+
+    if (document.getElementById("IW").checked) //Ironworks
+    {
+        var SteelMills = parseInt(document.getElementById("Steel_Mills").value);
+        var SteelPerTurn = SteelMills * 1.02;
+        var SteelPerDay = SteelPerTurn * 12;
     }
 
     var modifier = 0;
@@ -456,8 +549,12 @@ function calculateSteelProduction() {
     SteelPerDay += SteelPerDay * modifier;
     SteelPerTurn += SteelPerTurn * modifier;
 
-    document.getElementById("SteelPerDay").innerHTML = SteelPerDay.toFixed(2) + '<img src="../assets/steel.png" alt="">';
-    document.getElementById("SteelPerTurn").innerHTML = SteelPerTurn.toFixed(2) + '<img src="../assets/steel.png" alt="">';
+    // Formating the results
+    var formattedSteelPerDay = SteelPerDay.toLocaleString();
+    var formattedSteelPerTurn = SteelPerTurn.toLocaleString();
+    
+    document.getElementById("SteelPerDay").innerHTML = formattedSteelPerDay + '<img src="../assets/steel.png" alt="">';
+    document.getElementById("SteelPerTurn").innerHTML = formattedSteelPerTurn + '<img src="../assets/steel.png" alt="">';
 }
 
 function calculateAluminumProduction() {
@@ -467,6 +564,13 @@ function calculateAluminumProduction() {
 
     if (AluminumRefinery < 0 || AluminumRefinery > 5) {
         return false;
+    }
+
+    if (document.getElementById("BW").checked) //Bauxiteworks
+    {
+        var AluminumRefinery = parseInt(document.getElementById("Aluminum_Refinery").value);
+        var AluminumPerDay = AluminumRefinery * 12.24;
+        var AluminumPerTurn = AluminumPerDay / 12;
     }
 
     var modifier = 0;
@@ -491,8 +595,12 @@ function calculateAluminumProduction() {
     AluminumPerDay += AluminumPerDay * modifier;
     AluminumPerTurn += AluminumPerTurn * modifier;
 
-    document.getElementById("AluminumPerDay").innerHTML = AluminumPerDay.toFixed(2) + '<img src="../assets/aluminum.png" alt="">';
-    document.getElementById("AluminumPerTurn").innerHTML = AluminumPerTurn.toFixed(2) + '<img src="../assets/aluminum.png" alt="">';
+    // Formating the results
+    var formattedAluminumPerDay = AluminumPerDay.toLocaleString();
+    var formattedAluminumPerTurn = AluminumPerTurn.toLocaleString();
+    
+    document.getElementById("AluminumPerDay").innerHTML = formattedAluminumPerDay + '<img src="../assets/aluminum.png" alt="">';
+    document.getElementById("AluminumPerTurn").innerHTML = formattedAluminumPerTurn + '<img src="../assets/aluminum.png" alt="">';
 }
 
 function calculateMunitionsProduction() {
@@ -502,6 +610,13 @@ function calculateMunitionsProduction() {
 
     if (MunitionsFactory < 0 || MunitionsFactory > 5) {
         return false;
+    }
+
+    if (document.getElementById("AS").checked) //Arms Stockpile
+    {
+        var MunitionsFactory = parseInt(document.getElementById("Munitions_Factory").value);
+        var MunitionsPerDay = MunitionsFactory * 24.12;
+        var MunitionsPerTurn = MunitionsPerDay / 12;
     }
 
     var modifier = 0;
@@ -526,8 +641,12 @@ function calculateMunitionsProduction() {
     MunitionsPerDay += MunitionsPerDay * modifier;
     MunitionsPerTurn += MunitionsPerTurn * modifier;
 
-    document.getElementById("MunitionsPerDay").innerHTML = MunitionsPerDay.toFixed(2) + '<img src="../assets/munitions.png" alt="">';
-    document.getElementById("MunitionsPerTurn").innerHTML = MunitionsPerTurn.toFixed(2) + '<img src="../assets/munitions.png" alt="">';
+    // Formating the results
+    var formattedMunitionsPerDay = MunitionsPerDay.toLocaleString();
+    var formattedMunitionsPerTurn = MunitionsPerTurn.toLocaleString();
+    
+    document.getElementById("MunitionsPerDay").innerHTML = formattedMunitionsPerDay + '<img src="../assets/munitions.png" alt="">';
+    document.getElementById("MunitionsPerTurn").innerHTML = formattedMunitionsPerTurn + '<img src="../assets/munitions.png" alt="">';
 }
 
 function CalculatePopulation() {
@@ -587,9 +706,34 @@ function CalculatePopulation() {
         OilWells * 12 +
         UraniumMines * 20;
 
+    if (document.getElementById("RI").checked) {
+    var pollutionPoints = BauxiteMines * 12 +
+        OilRefinery * 32 +
+        PoliceStation * 1 +
+        Supermarket * 0 +
+        Barracks * 0 +
+        CoalMines * 12 +
+        SteelMills * 40 +
+        Hospitals * 4 +
+        Bank * 0 +
+        Factory * 0 +
+        NuclearPlants * 0 +
+        Farms * 2 +
+        AluminumRefinery * 40 +
+        RecyclingCenter * -75 +
+        ShoppingMall * 2 +
+        Hangar * 0 +
+        IronMines * 12 +
+        MunitionsFactory * 32 +
+        Subway * -45 +
+        Stadium * 5 +
+        Drydock * 0 +
+        LeadMines * 12 +
+        OilWells * 12 +
+        UraniumMines * 20;
+    }
     var pollutionIndex = pollutionPoints;
     var diseaseIncrease = 0.05 * pollutionIndex;
-
     var Supermarket = parseInt(document.getElementById("Supermarket").value);
     var Bank = parseInt(document.getElementById("Bank").value);
     var ShoppingMall = parseInt(document.getElementById("Shopping_Mall").value);
@@ -598,15 +742,38 @@ function CalculatePopulation() {
 
     var Commerce = Supermarket * 3 + Bank * 5 + ShoppingMall * 9 + Stadium * 12 + Subway * 8;
 
-    if (Commerce > 100) {
-        Commerce = 100
+    if (document.getElementById("TS").checked) {
+        document.getElementById("ITC").checked = true; // Automatically check ITC if TS is checked
+        if (Commerce < 125) {
+            Commerce += 2; //Add 2 to Commerce when TS is checked
+        }
+        if (Commerce > 125) {
+            Commerce = 125; //Cap Commerce at 125 if it exceeds the limit
+        }
+    } else if (document.getElementById("ITC").checked) {
+        if (Commerce > 115) {
+            Commerce = 115; //Cap Commerce at 115 if ITC is checked
+        }
+    } else {
+        if (Commerce > 100) {
+            Commerce = 100; //Cap Commerce at 100 if neither ITC nor TS is checked
+        }
     }
-
     var pollutionIndex = diseaseIncrease;
     var PollutionModifier = pollutionIndex * 0.05;
     var HospitalsModifier = Hospitals * 2.5;
+
+    if (document.getElementById("CRC").checked) {
+        var HospitalsModifier = Hospitals * 3.5;
+    }
+
     var DiseaseRate = (((PopulationDensity ** 2) * 0.01) - 25) / 100 + (BasePopulation / 100000) + PollutionModifier - HospitalsModifier;
     var policeModifier = (PoliceStation * 2.5);
+
+    if (document.getElementById("SPTP").checked) {
+        var policeModifier = (PoliceStation * 3.5);
+    }
+
     var CrimeRate = ((103 - Commerce) ** 2 + Infrastructure * 100) / 111111 - policeModifier;
     var ageBonus = 1 + Math.log(CityAge) / 15;
     var popDensity = BasePopulation / Land;
@@ -733,17 +900,35 @@ function Basic_Change() {
 
     // Civil Check
     if (PoliceStation < 0 || PoliceStation > 5) {
-        alert("Police Station must be between 0 and 5");
+        if (document.getElementById("SPTP").checked) {
+            if (PoliceStation < 0 || PoliceStation > 6) {
+                alert("Police Stations must be between 0 and 6");
+            }
+        } else {
+            alert("Police Station must be between 0 and 5");
+        }
         return false;
-    }
+    }    
 
     if (Hospital < 0 || Hospital > 5) {
-        alert("Hospital must be between 0 and 5");
+        if (document.getElementById("CRC").checked) {
+            if (Hospital < 0 || Hospital > 6) {
+                alert("Hospitals must be between 0 and 6");
+            }
+        } else {
+            alert("Hospitals must be between 0 and 5");
+        }
         return false;
     }
 
     if (RecyclingCenter < 0 || RecyclingCenter > 3) {
-        alert("Recycling Center must be between 0 and 3");
+        if (document.getElementById("RI").checked) {
+            if (RecyclingCenter < 0 || RecyclingCenter > 4) {
+                alert("Recycling Centers must be between 0 and 4");
+            }
+        } else {
+            alert("Recycling Centers must be between 0 and 3");
+        }
         return false;
     }
 

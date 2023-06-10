@@ -54,7 +54,30 @@
 }
 
 .Calculate_Button {
-    margin-bottom: 50px;
+    display: inline-block;
+    padding: 10px 20px;
+    margin-bottom: 20px;
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    transition: 0.5s;
+    margin-top: 30px;
+}
+
+.Calculate_Button:hover {
+    background-color: White;
+    color: #4CAF50;
+}
+
+.Center {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
 }
 
 .Text1 {
@@ -110,4 +133,57 @@
     border: 1px solid #ccc;
     border-radius: 4px;
     padding: 5px;
+}
+
+.city_Simulator_Project_container {
+    color: white;
+    flex: 0 0 auto;
+    width: auto;
+    height: auto;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.city_Simulator_Project_container_1 {
+    color: white;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.checkbox {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-color: #eee;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    vertical-align: middle;
+}
+
+.checkbox_text {
+    margin-top: 3px;
+    color: white;
+}
+
+.padding {
+    color: white;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.hidden {
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: opacity 0.5s ease-out, max-height 0.5s ease-out;
+}
+  
+.visible {
+    opacity: 1;
+    max-height: 1000px;
+    overflow: visible;
+    transition: opacity 0.5s ease-in, max-height 0.5s ease-in;
 }

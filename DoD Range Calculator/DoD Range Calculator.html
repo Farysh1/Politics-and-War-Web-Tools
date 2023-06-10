@@ -20,7 +20,7 @@
       <input type="number" placeholder="Nation Score" value="" id="Nation_Score" class="Nation_Score_number_input"
         onchange="War_Range_calculation(), Spy_Range_calculation()">
     </form>
-    <button onclick="War_Range_calculation(), Spy_Range_calculation()">Calculate</button>
+    <button class="Calculate_Button" onclick="War_Range_calculation(), Spy_Range_calculation()">Calculate</button>
     <p class="War_Range_number_calculator_text"> War Range:</p>
     <div class="War_Range_display">
       <img src="../assets/sword.png" class="Spy_and_WAR_Image">
@@ -31,7 +31,7 @@
       <img src="../assets/emotion_spy.png" class="Spy_and_WAR_Image">
       <span class="Spy_Range_number_calculator_text2" id="calculation_Spy_Range" class="Spy_Range_display"></span>
     </div>
-    <button onclick="CopyDataToClipboard()">Save to Clipboard</button>
+    <button class="Calculate_Button" onclick="CopyDataToClipboard()">Save to Clipboard</button>
   </div>
 </body>
 

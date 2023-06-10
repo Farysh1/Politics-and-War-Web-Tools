@@ -2,11 +2,14 @@
     background-color: black;
 }
 
+.UCR_Flag {
+    width: 200px;
+    height: 150px;
+}
+
 .nav_bar_links {
-    margin-left: 50px;
-    padding: 10px;
-    color: white;
-    background-color: black;
+    margin-left: 100px;
+    color: #fff;
     font-size: 20px;
     font-weight: 700;
     text-decoration: none;
@@ -14,41 +17,38 @@
 }
 
 .nav_bar_links:hover {
-    margin-left: 50px;
-    padding: 10px;
     color: #004080;
-    background-color: white;
-    font-size: 20px;
-    font-weight: 700;
-    text-decoration: none;
-    transition: 0.5s;
-}
-
-.nav_bar_links2 {
-    margin-left: 500px;
-    color: white;
-    font-size: 20px;
-    font-weight: 700;
-    text-decoration: none;
+    background-color: #fff;
+    padding: 20px;
 }
 
 .nav_bar {
     display: flex;
     align-items: center;
     justify-content: flex-start;
+    background-color: #000;
+    padding: 10px;
 }
 
 .Info_Text {
     color: white;
-    margin-top: 150px;
+    margin-top: 30px;
+    text-align: center;
 }
 
-.Info_Box {
+.info_box {
     color: white;
     width: 100%;
     display: flex;
-    overflow: auto;
     align-items: center;
     flex-direction: column;
     justify-content: flex-start;
+    padding: 20px;
+}
+
+.Main {
+    background-color: #000;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
 }

@@ -117,6 +117,58 @@
 			</h5>
 		</div>
 	</div>
+	<div class="Center">
+		<button id="toggleButton" class="Calculate_Button" onclick="toggleProjects()">Show Project Modifiers</button>
+	</div>	  
+	<div class="hidden" id="ProjectsContainer">
+		<div class="city_Simulator_Project_container_1">
+			<span>Production Boosters:</span>
+		</div>
+		<div class="city_Simulator_Project_container">
+			<input class="checkbox" type="checkbox" id="AS">
+			<span class="padding checkbox_text">Arms Stockpile |</span>
+			<input class="checkbox" type="checkbox" id="BW">
+			<span class="padding checkbox_text">Bauxiteworks |</span>
+			<input class="checkbox" type="checkbox" id="EGR">
+			<span class="padding checkbox_text">Emergency Gasoline Reserve |</span>
+			<input class="checkbox" type="checkbox" id="IW">
+			<span class="padding checkbox_text">Ironworks |</span>
+			<input class="checkbox" type="checkbox" id="MI">
+			<span class="padding checkbox_text">Mass Irrigation |</span>
+			<input class="checkbox" type="checkbox" id="UEP">
+			<span class="padding checkbox_text">Uranium Enrichment Program |</span>
+		</div>
+		<div class="city_Simulator_Project_container_1">
+			<span>Commerce Boosters:</span>
+		</div>
+		<div class="city_Simulator_Project_container">
+			<input class="checkbox" type="checkbox" id="ITC">
+			<span class="padding checkbox_text">International Trade Center |</span>
+			<input class="checkbox" type="checkbox" id="TS">
+			<span class="padding checkbox_text">Telecommunications Satellite |</span>
+		</div>
+		<div class="city_Simulator_Project_container_1">
+			<span>Crime Reducer:</span>
+		</div>
+		<div class="city_Simulator_Project_container">
+			<input class="checkbox" type="checkbox" id="SPTP">
+			<span class="padding checkbox_text">Specialized Police Training Program |</span>
+		</div>
+		<div class="city_Simulator_Project_container_1">
+			<span>Disease Reducer:</span>
+		</div>
+		<div class="city_Simulator_Project_container">
+			<input class="checkbox" type="checkbox" id="CRC">
+			<span class="padding checkbox_text">Clinical Research Center |</span>
+		</div>
+		<div class="city_Simulator_Project_container_1">
+			<span>Pollution Reducers:</span>
+		</div>
+		<div class="city_Simulator_Project_container">
+			<input class="checkbox" type="checkbox" id="RI">
+			<span class="padding checkbox_text">Recycling Initiative |</span>
+		</div>
+	</div>
 	<div class="city_Simulator_calculator_container">
 		<button class="Calculate_Button"
 			onclick="Basic_Change(), Basic_Change(), calculateCoalProduction(), calculateBauxiteProduction(), calculateOilProduction(), calculateIronProduction(), calculateLeadProduction(), calculateUraniumProduction(), calculateGasolineProduction(), calculateSteelProduction(), calculateAluminumProduction(), calculateMunitionsProduction(), calculateFoodProduction(), CalculatePopulation(), MoneyCalculation()">Calculate</button>
@@ -154,8 +206,7 @@
     "imp_drydock": 0
 }
     </Textarea readonly required>
-        <h1 class="Text1">Resource Output is still WIP</h1>
-        <p class="Text1">Info: Resource usage is not accounted for. Money production calculation not implemented yet</p>
+        <p class="Text1">Info: Resource usage and Upkeep costs are not accounted for</p>
         <div class="City_Stats_Output_Container">
           <div class="City_Stats_Output_Container_Item">
             <h3 class="Text1">Output (per turn)</h3>

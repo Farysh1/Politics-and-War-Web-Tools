@@ -6,8 +6,7 @@
 
 - City Cost Calculator
 - War and Spy range calculator
-- City Simulator (Only partially done)
-- FA Treaty Creation Tool (experimental)
+- City Simulator
 - More to come in the future
 
 #
@@ -15,34 +14,23 @@
 ### WIP
 
 - More tools
-- Adding Project to the City Simulator
-- Commerce and money calculation
-
-#
-
-### Known Issues
-
-##### City Simulator
-
-- Food Calculations might be slightly off in some cases
-
-##
 
 ## Changelog
 
-## Version 0.0.3 - June 08, 2023
+## Version 1.0.0 - June 10, 2023
 
 Added:
 
-- none
+- Project Modifiers to City Simulator
+- City Simulator output will be formatted with dots and commas based on the user's locale settings.
 
 Changed:
 
-- updated the other tools to be mobile compatible
+- Design
 
 Fixed:
 
-- none
+- small miscalculation bug with food
 
 Removed:
 

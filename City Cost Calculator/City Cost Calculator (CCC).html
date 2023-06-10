@@ -20,7 +20,7 @@
       <input type="number" placeholder="city number" value="" id="city_number" min="1" class="city_number_input"
         required>
     </form>
-    <button onclick="validate(), cost_calculation(), projects_and_policy()">Calculate</button>
+    <button class="Calculate_Button" onclick="validate(), cost_calculation(), projects_and_policy()">Calculate</button>
     <p class="city_number_calculator_text2"> Calculation result:</p>
     <div class="cash_display">
       <img src="../assets/money.png" class="cash_display_img">
@@ -28,14 +28,14 @@
     </div>
     <noscript>Eh, your browser doesn't support JavaScript, so this doesn't work</noscript>
     <div class="city_number_calculator_container_text">
-      <input type="checkbox" id="UP" />
-      <span class="padding">Urban Planning |</span>
+      <input class="checkbox" type="checkbox" id="UP" />
+      <span class="padding checkbox_text">Urban Planning |</span>
       <div class="city_number_calculator_container_text">
-        <input type="checkbox" id="AUP" />
-        <span class="padding">Advanced Urban Planning |</span>
+        <input class="checkbox" type="checkbox" id="AUP" />
+        <span class="padding checkbox_text">Advanced Urban Planning |</span>
         <div class="city_number_calculator_container_text">
-          <input type="checkbox" id="MP" />
-          <span class="padding">Metropolitan Planning |</span>
+          <input class="checkbox" type="checkbox" id="MP" />
+          <span class="padding checkbox_text">Metropolitan Planning |</span>
         </div>
 </body>
 
